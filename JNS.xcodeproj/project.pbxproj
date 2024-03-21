@@ -11,10 +11,10 @@
 		19B37EA62BABB92A0082CC26 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B37EA52BABB92A0082CC26 /* ContentView.swift */; };
 		19B37EA82BABB9300082CC26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19B37EA72BABB9300082CC26 /* Assets.xcassets */; };
 		19B37EAB2BABB9300082CC26 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19B37EAA2BABB9300082CC26 /* Preview Assets.xcassets */; };
-		19B37EB32BABBB5B0082CC26 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B37EB22BABBB5B0082CC26 /* WebView.swift */; };
 		19B37EB62BABC0450082CC26 /* ObservableBoolean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B37EB52BABC0450082CC26 /* ObservableBoolean.swift */; };
 		19B37EB82BABC98B0082CC26 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B37EB72BABC98B0082CC26 /* Extensions.swift */; };
 		19B37EBA2BABC9B20082CC26 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B37EB92BABC9B20082CC26 /* Colors.swift */; };
+		19B37EBC2BABD4E20082CC26 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B37EBB2BABD4E20082CC26 /* WebView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,10 +23,10 @@
 		19B37EA52BABB92A0082CC26 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		19B37EA72BABB9300082CC26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19B37EAA2BABB9300082CC26 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		19B37EB22BABBB5B0082CC26 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = SOURCE_ROOT; };
 		19B37EB52BABC0450082CC26 /* ObservableBoolean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableBoolean.swift; sourceTree = "<group>"; };
 		19B37EB72BABC98B0082CC26 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		19B37EB92BABC9B20082CC26 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		19B37EBB2BABD4E20082CC26 /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +80,7 @@
 		19B37EB12BABBB320082CC26 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				19B37EB22BABBB5B0082CC26 /* WebView.swift */,
+				19B37EBB2BABD4E20082CC26 /* WebView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -167,8 +167,8 @@
 			files = (
 				19B37EB82BABC98B0082CC26 /* Extensions.swift in Sources */,
 				19B37EBA2BABC9B20082CC26 /* Colors.swift in Sources */,
-				19B37EB32BABBB5B0082CC26 /* WebView.swift in Sources */,
 				19B37EA62BABB92A0082CC26 /* ContentView.swift in Sources */,
+				19B37EBC2BABD4E20082CC26 /* WebView.swift in Sources */,
 				19B37EA42BABB92A0082CC26 /* JNSApp.swift in Sources */,
 				19B37EB62BABC0450082CC26 /* ObservableBoolean.swift in Sources */,
 			);
