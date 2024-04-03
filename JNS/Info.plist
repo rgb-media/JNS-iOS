@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>FreightSansProBlack-Italic.ttf</string>
+		<string>FreightSansProBlack-Regular.ttf</string>
+		<string>FreightSansProBold-Italic.ttf</string>
+		<string>FreightSansProBold-Regular.ttf</string>
+		<string>FreightSansProBook-Italic.ttf</string>
+		<string>FreightSansProBook-Regular.ttf</string>
+		<string>FreightSansProMedium-Italic.ttf</string>
+		<string>FreightSansProMedium-Regular.ttf</string>
+		<string>FreightSansProSemibold-Italic.ttf</string>
+		<string>UtopiaStd-BoldDisp.ttf</string>
+	</array>
+</dict>
+</plist>

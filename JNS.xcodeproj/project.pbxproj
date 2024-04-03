@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19AA4C212BBCBAF700063ACE /* FreightSansProBold-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 19AA4C172BBCBAF500063ACE /* FreightSansProBold-Regular.ttf */; };
+		19AA4C222BBCBAF700063ACE /* UtopiaStd-BoldDisp.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 19AA4C182BBCBAF500063ACE /* UtopiaStd-BoldDisp.ttf */; };
+		19AA4C232BBCBAF700063ACE /* FreightSansProBlack-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 19AA4C192BBCBAF600063ACE /* FreightSansProBlack-Regular.ttf */; };
+		19AA4C242BBCBAF700063ACE /* FreightSansProSemibold-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 19AA4C1A2BBCBAF600063ACE /* FreightSansProSemibold-Italic.ttf */; };
+		19AA4C252BBCBAF700063ACE /* FreightSansProBook-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 19AA4C1B2BBCBAF600063ACE /* FreightSansProBook-Regular.ttf */; };
+		19AA4C262BBCBAF700063ACE /* FreightSansProMedium-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 19AA4C1C2BBCBAF600063ACE /* FreightSansProMedium-Regular.ttf */; };
+		19AA4C272BBCBAF700063ACE /* FreightSansProMedium-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 19AA4C1D2BBCBAF700063ACE /* FreightSansProMedium-Italic.ttf */; };
+		19AA4C282BBCBAF700063ACE /* FreightSansProBook-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 19AA4C1E2BBCBAF700063ACE /* FreightSansProBook-Italic.ttf */; };
+		19AA4C292BBCBAF700063ACE /* FreightSansProBold-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 19AA4C1F2BBCBAF700063ACE /* FreightSansProBold-Italic.ttf */; };
+		19AA4C2A2BBCBAF700063ACE /* FreightSansProBlack-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 19AA4C202BBCBAF700063ACE /* FreightSansProBlack-Italic.ttf */; };
+		19AA4C2D2BBCC16700063ACE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AA4C2C2BBCC16700063ACE /* Constants.swift */; };
+		19AA4C302BBCC28B00063ACE /* PromotionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AA4C2F2BBCC28B00063ACE /* PromotionService.swift */; };
+		19AA4C332BBCC38600063ACE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 19AA4C322BBCC38600063ACE /* Alamofire */; };
+		19AA4C352BBCC38600063ACE /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 19AA4C342BBCC38600063ACE /* AlamofireDynamic */; };
+		19AA4C382BBCC3DE00063ACE /* PromotionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AA4C372BBCC3DE00063ACE /* PromotionModel.swift */; };
+		19AA4C3B2BBCC50000063ACE /* PromotionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AA4C3A2BBCC50000063ACE /* PromotionViewModel.swift */; };
 		19B37EA42BABB92A0082CC26 /* JNSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B37EA32BABB92A0082CC26 /* JNSApp.swift */; };
 		19B37EA62BABB92A0082CC26 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B37EA52BABB92A0082CC26 /* ContentView.swift */; };
 		19B37EA82BABB9300082CC26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19B37EA72BABB9300082CC26 /* Assets.xcassets */; };
@@ -18,6 +34,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		19AA4C172BBCBAF500063ACE /* FreightSansProBold-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FreightSansProBold-Regular.ttf"; sourceTree = "<group>"; };
+		19AA4C182BBCBAF500063ACE /* UtopiaStd-BoldDisp.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UtopiaStd-BoldDisp.ttf"; sourceTree = "<group>"; };
+		19AA4C192BBCBAF600063ACE /* FreightSansProBlack-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FreightSansProBlack-Regular.ttf"; sourceTree = "<group>"; };
+		19AA4C1A2BBCBAF600063ACE /* FreightSansProSemibold-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FreightSansProSemibold-Italic.ttf"; sourceTree = "<group>"; };
+		19AA4C1B2BBCBAF600063ACE /* FreightSansProBook-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FreightSansProBook-Regular.ttf"; sourceTree = "<group>"; };
+		19AA4C1C2BBCBAF600063ACE /* FreightSansProMedium-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FreightSansProMedium-Regular.ttf"; sourceTree = "<group>"; };
+		19AA4C1D2BBCBAF700063ACE /* FreightSansProMedium-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FreightSansProMedium-Italic.ttf"; sourceTree = "<group>"; };
+		19AA4C1E2BBCBAF700063ACE /* FreightSansProBook-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FreightSansProBook-Italic.ttf"; sourceTree = "<group>"; };
+		19AA4C1F2BBCBAF700063ACE /* FreightSansProBold-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FreightSansProBold-Italic.ttf"; sourceTree = "<group>"; };
+		19AA4C202BBCBAF700063ACE /* FreightSansProBlack-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FreightSansProBlack-Italic.ttf"; sourceTree = "<group>"; };
+		19AA4C2B2BBCBBB700063ACE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		19AA4C2C2BBCC16700063ACE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		19AA4C2F2BBCC28B00063ACE /* PromotionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionService.swift; sourceTree = "<group>"; };
+		19AA4C372BBCC3DE00063ACE /* PromotionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionModel.swift; sourceTree = "<group>"; };
+		19AA4C3A2BBCC50000063ACE /* PromotionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionViewModel.swift; sourceTree = "<group>"; };
 		19B37EA02BABB92A0082CC26 /* JNS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JNS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B37EA32BABB92A0082CC26 /* JNSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JNSApp.swift; sourceTree = "<group>"; };
 		19B37EA52BABB92A0082CC26 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -34,12 +65,55 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19AA4C332BBCC38600063ACE /* Alamofire in Frameworks */,
+				19AA4C352BBCC38600063ACE /* AlamofireDynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19AA4C162BBCBAD100063ACE /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				19AA4C202BBCBAF700063ACE /* FreightSansProBlack-Italic.ttf */,
+				19AA4C192BBCBAF600063ACE /* FreightSansProBlack-Regular.ttf */,
+				19AA4C1F2BBCBAF700063ACE /* FreightSansProBold-Italic.ttf */,
+				19AA4C172BBCBAF500063ACE /* FreightSansProBold-Regular.ttf */,
+				19AA4C1E2BBCBAF700063ACE /* FreightSansProBook-Italic.ttf */,
+				19AA4C1B2BBCBAF600063ACE /* FreightSansProBook-Regular.ttf */,
+				19AA4C1D2BBCBAF700063ACE /* FreightSansProMedium-Italic.ttf */,
+				19AA4C1C2BBCBAF600063ACE /* FreightSansProMedium-Regular.ttf */,
+				19AA4C1A2BBCBAF600063ACE /* FreightSansProSemibold-Italic.ttf */,
+				19AA4C182BBCBAF500063ACE /* UtopiaStd-BoldDisp.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		19AA4C2E2BBCC25000063ACE /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				19AA4C2F2BBCC28B00063ACE /* PromotionService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		19AA4C362BBCC3B700063ACE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				19AA4C372BBCC3DE00063ACE /* PromotionModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		19AA4C392BBCC4E200063ACE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				19AA4C3A2BBCC50000063ACE /* PromotionViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		19B37E972BABB92A0082CC26 = {
 			isa = PBXGroup;
 			children = (
@@ -59,11 +133,16 @@
 		19B37EA22BABB92A0082CC26 /* JNS */ = {
 			isa = PBXGroup;
 			children = (
-				19B37EB42BABC0290082CC26 /* Utils */,
+				19AA4C2B2BBCBBB700063ACE /* Info.plist */,
+				19AA4C362BBCC3B700063ACE /* Models */,
+				19AA4C2E2BBCC25000063ACE /* Network */,
+				19AA4C392BBCC4E200063ACE /* ViewModels */,
 				19B37EB12BABBB320082CC26 /* Views */,
+				19B37EB42BABC0290082CC26 /* Utils */,
 				19B37EA32BABB92A0082CC26 /* JNSApp.swift */,
 				19B37EA52BABB92A0082CC26 /* ContentView.swift */,
 				19B37EA72BABB9300082CC26 /* Assets.xcassets */,
+				19AA4C162BBCBAD100063ACE /* Fonts */,
 				19B37EA92BABB9300082CC26 /* Preview Content */,
 			);
 			path = JNS;
@@ -88,9 +167,10 @@
 		19B37EB42BABC0290082CC26 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				19B37EB52BABC0450082CC26 /* ObservableBoolean.swift */,
-				19B37EB72BABC98B0082CC26 /* Extensions.swift */,
 				19B37EB92BABC9B20082CC26 /* Colors.swift */,
+				19AA4C2C2BBCC16700063ACE /* Constants.swift */,
+				19B37EB72BABC98B0082CC26 /* Extensions.swift */,
+				19B37EB52BABC0450082CC26 /* ObservableBoolean.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -111,6 +191,10 @@
 			dependencies = (
 			);
 			name = JNS;
+			packageProductDependencies = (
+				19AA4C322BBCC38600063ACE /* Alamofire */,
+				19AA4C342BBCC38600063ACE /* AlamofireDynamic */,
+			);
 			productName = JNS;
 			productReference = 19B37EA02BABB92A0082CC26 /* JNS.app */;
 			productType = "com.apple.product-type.application";
@@ -139,6 +223,9 @@
 				Base,
 			);
 			mainGroup = 19B37E972BABB92A0082CC26;
+			packageReferences = (
+				19AA4C312BBCC38600063ACE /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 19B37EA12BABB92A0082CC26 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -154,7 +241,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				19B37EAB2BABB9300082CC26 /* Preview Assets.xcassets in Resources */,
+				19AA4C222BBCBAF700063ACE /* UtopiaStd-BoldDisp.ttf in Resources */,
+				19AA4C292BBCBAF700063ACE /* FreightSansProBold-Italic.ttf in Resources */,
+				19AA4C282BBCBAF700063ACE /* FreightSansProBook-Italic.ttf in Resources */,
+				19AA4C272BBCBAF700063ACE /* FreightSansProMedium-Italic.ttf in Resources */,
+				19AA4C2A2BBCBAF700063ACE /* FreightSansProBlack-Italic.ttf in Resources */,
+				19AA4C242BBCBAF700063ACE /* FreightSansProSemibold-Italic.ttf in Resources */,
 				19B37EA82BABB9300082CC26 /* Assets.xcassets in Resources */,
+				19AA4C252BBCBAF700063ACE /* FreightSansProBook-Regular.ttf in Resources */,
+				19AA4C232BBCBAF700063ACE /* FreightSansProBlack-Regular.ttf in Resources */,
+				19AA4C262BBCBAF700063ACE /* FreightSansProMedium-Regular.ttf in Resources */,
+				19AA4C212BBCBAF700063ACE /* FreightSansProBold-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,9 +263,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				19B37EB82BABC98B0082CC26 /* Extensions.swift in Sources */,
+				19AA4C302BBCC28B00063ACE /* PromotionService.swift in Sources */,
+				19AA4C3B2BBCC50000063ACE /* PromotionViewModel.swift in Sources */,
+				19AA4C382BBCC3DE00063ACE /* PromotionModel.swift in Sources */,
 				19B37EBA2BABC9B20082CC26 /* Colors.swift in Sources */,
 				19B37EA62BABB92A0082CC26 /* ContentView.swift in Sources */,
 				19B37EBC2BABD4E20082CC26 /* WebView.swift in Sources */,
+				19AA4C2D2BBCC16700063ACE /* Constants.swift in Sources */,
 				19B37EA42BABB92A0082CC26 /* JNSApp.swift in Sources */,
 				19B37EB62BABC0450082CC26 /* ObservableBoolean.swift in Sources */,
 			);
@@ -307,6 +408,7 @@
 				DEVELOPMENT_TEAM = A6HMB4KPG2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = JNS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -336,6 +438,7 @@
 				DEVELOPMENT_TEAM = A6HMB4KPG2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = JNS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -376,6 +479,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		19AA4C312BBCC38600063ACE /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		19AA4C322BBCC38600063ACE /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 19AA4C312BBCC38600063ACE /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		19AA4C342BBCC38600063ACE /* AlamofireDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 19AA4C312BBCC38600063ACE /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = AlamofireDynamic;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 19B37E982BABB92A0082CC26 /* Project object */;
 }
