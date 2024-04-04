@@ -13,6 +13,8 @@ struct ContentView: View {
     private let promotionTextFont   = Font.custom("FreightSansProBlack-Regular", size: 20)
     private let promotionButtonFont = Font.custom("FreightSansProBlack-Regular", size: 16)
     private let bottomBarFont       = Font.custom("FreightSansProBook-Regular", size: 12)
+    
+    private let menuView = MenuView()
 
     @State var webViewContentOffset = CGPoint(x: 0, y: 0)
     @State var selectedBottomIndex  = 0
@@ -129,7 +131,13 @@ struct ContentView: View {
                     .background(.white)
                 }
                 
-                WebView(webViewModel: webViewModel, contentOffset: $webViewContentOffset)
+                ZStack(alignment: .top) {
+                    WebView(webViewModel: webViewModel, contentOffset: $webViewContentOffset)
+                    
+                    menuView
+                        .frame(maxHeight: showMenu.value ? .infinity : 0)
+                        .animation(.linear(duration: Constants.MENNU_ANIMATION_DURATION), value: showMenu.value)
+                }
                 
                 Color(hex: 0x969696).frame(height: 1)
                 
@@ -214,7 +222,3 @@ struct ContentView: View {
 //        .ignoresSafeArea(edges: .bottom)
     }
 }
-
-//#Preview {
-//    ContentView()
-//}

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19A6EBA62BBE38B60000FC18 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A6EBA52BBE38B60000FC18 /* MenuModel.swift */; };
+		19A6EBA82BBE39BE0000FC18 /* MenuService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A6EBA72BBE39BE0000FC18 /* MenuService.swift */; };
+		19A6EBAA2BBE3A040000FC18 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A6EBA92BBE3A040000FC18 /* MenuViewModel.swift */; };
+		19A6EBAC2BBE3A540000FC18 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A6EBAB2BBE3A540000FC18 /* MenuView.swift */; };
+		19A6EBAE2BBE50A10000FC18 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A6EBAD2BBE50A10000FC18 /* SearchView.swift */; };
 		19AA4C212BBCBAF700063ACE /* FreightSansProBold-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 19AA4C172BBCBAF500063ACE /* FreightSansProBold-Regular.ttf */; };
 		19AA4C222BBCBAF700063ACE /* UtopiaStd-BoldDisp.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 19AA4C182BBCBAF500063ACE /* UtopiaStd-BoldDisp.ttf */; };
 		19AA4C232BBCBAF700063ACE /* FreightSansProBlack-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 19AA4C192BBCBAF600063ACE /* FreightSansProBlack-Regular.ttf */; };
@@ -37,6 +42,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		19A6EBA52BBE38B60000FC18 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
+		19A6EBA72BBE39BE0000FC18 /* MenuService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuService.swift; sourceTree = "<group>"; };
+		19A6EBA92BBE3A040000FC18 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		19A6EBAB2BBE3A540000FC18 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		19A6EBAD2BBE50A10000FC18 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		19AA4C172BBCBAF500063ACE /* FreightSansProBold-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FreightSansProBold-Regular.ttf"; sourceTree = "<group>"; };
 		19AA4C182BBCBAF500063ACE /* UtopiaStd-BoldDisp.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UtopiaStd-BoldDisp.ttf"; sourceTree = "<group>"; };
 		19AA4C192BBCBAF600063ACE /* FreightSansProBlack-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FreightSansProBlack-Regular.ttf"; sourceTree = "<group>"; };
@@ -99,6 +109,7 @@
 		19AA4C2E2BBCC25000063ACE /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				19A6EBA72BBE39BE0000FC18 /* MenuService.swift */,
 				19AA4C2F2BBCC28B00063ACE /* PromotionService.swift */,
 			);
 			path = Network;
@@ -107,6 +118,7 @@
 		19AA4C362BBCC3B700063ACE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				19A6EBA52BBE38B60000FC18 /* MenuModel.swift */,
 				19AA4C372BBCC3DE00063ACE /* PromotionModel.swift */,
 			);
 			path = Models;
@@ -115,6 +127,7 @@
 		19AA4C392BBCC4E200063ACE /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				19A6EBA92BBE3A040000FC18 /* MenuViewModel.swift */,
 				19AA4C3A2BBCC50000063ACE /* PromotionViewModel.swift */,
 			);
 			path = ViewModels;
@@ -165,6 +178,8 @@
 		19B37EB12BABBB320082CC26 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				19A6EBAB2BBE3A540000FC18 /* MenuView.swift */,
+				19A6EBAD2BBE50A10000FC18 /* SearchView.swift */,
 				19B37EBB2BABD4E20082CC26 /* WebView.swift */,
 				19AA4C3C2BBCE88C00063ACE /* WebViewModel.swift */,
 				19AA4C3E2BBCE8A400063ACE /* WebViewDelegate.swift */,
@@ -272,7 +287,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				19B37EB82BABC98B0082CC26 /* Extensions.swift in Sources */,
+				19A6EBAE2BBE50A10000FC18 /* SearchView.swift in Sources */,
 				19AA4C302BBCC28B00063ACE /* PromotionService.swift in Sources */,
+				19A6EBA82BBE39BE0000FC18 /* MenuService.swift in Sources */,
+				19A6EBA62BBE38B60000FC18 /* MenuModel.swift in Sources */,
 				19AA4C3B2BBCC50000063ACE /* PromotionViewModel.swift in Sources */,
 				19AA4C432BBCF1B200063ACE /* Utils.swift in Sources */,
 				19AA4C382BBCC3DE00063ACE /* PromotionModel.swift in Sources */,
@@ -282,7 +300,9 @@
 				19AA4C3D2BBCE88C00063ACE /* WebViewModel.swift in Sources */,
 				19AA4C3F2BBCE8A400063ACE /* WebViewDelegate.swift in Sources */,
 				19AA4C412BBCE95A00063ACE /* LoginPopupObservable.swift in Sources */,
+				19A6EBAC2BBE3A540000FC18 /* MenuView.swift in Sources */,
 				19AA4C2D2BBCC16700063ACE /* Constants.swift in Sources */,
+				19A6EBAA2BBE3A040000FC18 /* MenuViewModel.swift in Sources */,
 				19B37EA42BABB92A0082CC26 /* JNSApp.swift in Sources */,
 				19B37EB62BABC0450082CC26 /* ShowMenuObservable.swift in Sources */,
 			);
