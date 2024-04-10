@@ -21,7 +21,7 @@ struct MenuView: View {
                 
                 Spacer().frame(height: 20)
 
-                Color(hex: 0x252525).frame(height: 1)
+                Color.jnsBlack.frame(height: 1)
 
                 Spacer().frame(height: 12)
 
@@ -29,6 +29,7 @@ struct MenuView: View {
                     HStack {
                         Text(menuItem.name.trimmingCharacters(in: .whitespacesAndNewlines))
                             .font(itemTextFont)
+                            .foregroundColor(.jnsBlack)
                         
                         if menuItem.secondary_items != nil && menuItem.secondary_items?.isEmpty == false {
                             Image("ArrowDown")
@@ -40,7 +41,7 @@ struct MenuView: View {
                     Spacer().frame(height: 12)
                 }
                 
-                Color(hex: 0x252525).frame(height: 1)
+                Color.jnsBlack.frame(height: 1)
             }
             .padding(.horizontal, 18)
         }

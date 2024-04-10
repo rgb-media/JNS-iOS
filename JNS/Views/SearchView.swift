@@ -48,7 +48,7 @@ struct SearchView: View {
                     }
                     .font(Font.custom("FreightSansProBold-Regular", size: 16))
                     .multilineTextAlignment(.leading)
-                    .foregroundColor(Color(hex: 0x282828))
+                    .foregroundColor(.jnsBlack)
                     .submitLabel(.search)
             }
 
@@ -66,7 +66,8 @@ struct SearchView: View {
             .padding(.horizontal, 30)
             .foregroundColor(.white)
             .background(Capsule()
-                .background(Color(hex: 0x252525)))
+                .strokeBorder(Color.jnsBlack, lineWidth: 1)
+                .background(Color.jnsBlack))
             .clipShape(Capsule())
             
             Spacer().frame(width: 2)
@@ -74,7 +75,7 @@ struct SearchView: View {
         .frame(height: 50)
         .padding(.leading, 20)
         .background(Capsule()
-            .strokeBorder(Color(hex: 0x252525), lineWidth: 1)
+            .strokeBorder(Color.jnsBlack, lineWidth: 1)
             .background(.white))
         .clipShape(Capsule())
     }

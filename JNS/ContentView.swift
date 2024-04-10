@@ -29,8 +29,8 @@ struct ContentView: View {
         ZStack(alignment: .top) {
             VStack(spacing: 0) {
                 VStack(spacing: 0) {
-                    Colors.jnsRed.frame(height: 4)
-                    Colors.jnsBlue.frame(height: 2)
+                    Color.jnsRed.frame(height: 4)
+                    Color.jnsBlue.frame(height: 2)
                     
                     HStack(spacing: 0) {
                         if webViewModel.isArticle {
@@ -89,7 +89,7 @@ struct ContentView: View {
                         .frame(width: headerHeight, height: headerHeight)
                     }
                     
-                    Colors.jnsRed.frame(height: 1)
+                    Color.jnsRed.frame(height: 1)
                 }
                 .background(.white)
                 .zIndex(1)
@@ -142,11 +142,11 @@ struct ContentView: View {
                     VStack {
                         Image("Home")
                             .renderingMode(.template)
-                            .foregroundColor(selectedBottomIndex == 0 ? Colors.jnsRed: .black)
+                            .foregroundColor(selectedBottomIndex == 0 ? .jnsRed: .jnsBlack)
                         
                         Text("HOME")
                             .font(bottomBarFont)
-                            .foregroundColor(selectedBottomIndex == 0 ? Colors.jnsRed: .black)
+                            .foregroundColor(selectedBottomIndex == 0 ? .jnsRed: .jnsBlack)
                     }
                     .frame(maxWidth: .infinity)
                     .onTapGesture {
@@ -158,11 +158,11 @@ struct ContentView: View {
                     VStack {
                         Image("Latest")
                             .renderingMode(.template)
-                            .foregroundColor(selectedBottomIndex == 1 ? Colors.jnsRed: .black)
+                            .foregroundColor(selectedBottomIndex == 1 ? .jnsRed: .jnsBlack)
                         
                         Text("LATEST")
                             .font(bottomBarFont)
-                            .foregroundColor(selectedBottomIndex == 1 ? Colors.jnsRed: .black)
+                            .foregroundColor(selectedBottomIndex == 1 ? .jnsRed: .jnsBlack)
                     }
                     .frame(maxWidth: .infinity)
                     .onTapGesture {
@@ -174,11 +174,11 @@ struct ContentView: View {
                     VStack {
                         Image("Opinion")
                             .renderingMode(.template)
-                            .foregroundColor(selectedBottomIndex == 2 ? Colors.jnsRed: .black)
+                            .foregroundColor(selectedBottomIndex == 2 ? .jnsRed: .jnsBlack)
                         
                         Text("OPINION")
                             .font(bottomBarFont)
-                            .foregroundColor(selectedBottomIndex == 2 ? Colors.jnsRed: .black)
+                            .foregroundColor(selectedBottomIndex == 2 ? .jnsRed: .jnsBlack)
                     }
                     .frame(maxWidth: .infinity)
                     .onTapGesture {
@@ -190,11 +190,11 @@ struct ContentView: View {
                     VStack {
                         Image("Media")
                             .renderingMode(.template)
-                            .foregroundColor(selectedBottomIndex == 3 ? Colors.jnsRed: .black)
+                            .foregroundColor(selectedBottomIndex == 3 ? .jnsRed: .jnsBlack)
                         
                         Text("MEDIA")
                             .font(bottomBarFont)
-                            .foregroundColor(selectedBottomIndex == 3 ? Colors.jnsRed: .black)
+                            .foregroundColor(selectedBottomIndex == 3 ? .jnsRed: .jnsBlack)
                     }
                     .frame(maxWidth: .infinity)
                     .onTapGesture {
