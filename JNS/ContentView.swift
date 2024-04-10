@@ -15,23 +15,87 @@ struct ContentView: View {
     private let bottomBarFont       = Font.custom("FreightSansProBook-Regular", size: 12)
     
     private let menuView = MenuView()
-
+    
     @State var webViewContentOffset = CGPoint(x: 0, y: 0)
     @State var selectedBottomIndex  = 0
-
+    
     @StateObject var webViewModel   = WebViewModel()
     @StateObject var showMenu       = ShowMenuObservable()
     @StateObject var showLoginPopup = LoginPopupObservable()
     
     @ObservedObject var promotionViewModel = PromotionViewModel()
-
+    
     var body: some View {
         ZStack(alignment: .top) {
             VStack(spacing: 0) {
+                VStack(spacing: 0) {
+                    Colors.jnsRed.frame(height: 4)
+                    Colors.jnsBlue.frame(height: 2)
+                    
+                    HStack(spacing: 0) {
+                        if webViewModel.isArticle {
+                            HStack(spacing: 0) {
+                                Button(action: {
+                                    webViewModel.goBack()
+                                }) {
+                                    Image("Back")
+                                }
+                                .frame(width: 32, height: headerHeight)
+                                
+                                Image("Logo")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(height: 44)
+                            }
+                        }
+                        
+                        Spacer()
+                        
+                        if webViewModel.isArticle {
+                            Color(.lightGray).frame(width: 1, height: headerHeight)
+                            Button(action: {
+                                guard let url = webViewModel.webView.url else {
+                                    return
+                                }
+                                
+                                let activityVC = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+                                
+                                UIApplication.shared.connectedScenes
+                                    .filter({$0.activationState == .foregroundActive})
+                                    .map({$0 as? UIWindowScene})
+                                    .compactMap({$0})
+                                    .first?.windows
+                                    .filter({$0.isKeyWindow})
+                                    .first?.rootViewController?.present(activityVC, animated: true, completion: nil)
+                            }) {
+                                Image("Share")
+                            }
+                            .frame(width: headerHeight, height: headerHeight)
+                        }
+                        
+                        Color(.lightGray).frame(width: 1, height: headerHeight)
+                        Button(action: {
+                        }) {
+                            Image("User")
+                        }
+                        .frame(width: headerHeight, height: headerHeight)
+                        
+                        Color(.lightGray).frame(width: 1, height: headerHeight)
+                        Button(action: {
+                            showMenu.value.toggle()
+                        }) {
+                            Image(showMenu.value ? "CloseMenu" : "Menu")
+                        }
+                        .frame(width: headerHeight, height: headerHeight)
+                    }
+                    
+                    Colors.jnsRed.frame(height: 1)
+                }
+                .background(.white)
+                .zIndex(1)
+                
                 ZStack(alignment: .top) {
                     VStack(spacing: 0) {
-                        Spacer().frame(height: headerHeight + 6)
-                        
                         if webViewContentOffset.y == 0 {
                             HStack {
                                 Text(promotionViewModel.promotion.title)
@@ -63,76 +127,9 @@ struct ContentView: View {
                             .contentShape(Rectangle())
                             .transition(.move(edge: .top))
                         }
-                    }
-
-                    VStack(spacing: 0) {
-                        Colors.jnsRed.frame(height: 4)
-                        Colors.jnsBlue.frame(height: 2)
                         
-                        HStack(spacing: 0) {
-                            if webViewModel.isArticle {
-                                HStack(spacing: 0) {
-                                    Button(action: {
-                                        webViewModel.goBack()
-                                    }) {
-                                        Image("Back")
-                                    }
-                                    .frame(width: 32, height: headerHeight)
-                                    
-                                    Image("Logo")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(height: 44)
-                                }
-                            }
-
-                            Spacer()
-                            
-                            if webViewModel.isArticle {
-                                Color(.lightGray).frame(width: 1, height: headerHeight)
-                                Button(action: {
-                                    guard let url = webViewModel.webView.url else {
-                                        return
-                                    }
-                                    
-                                    let activityVC = UIActivityViewController(activityItems: [url], applicationActivities: nil)
-
-                                    UIApplication.shared.connectedScenes
-                                            .filter({$0.activationState == .foregroundActive})
-                                            .map({$0 as? UIWindowScene})
-                                            .compactMap({$0})
-                                            .first?.windows
-                                            .filter({$0.isKeyWindow})
-                                            .first?.rootViewController?.present(activityVC, animated: true, completion: nil)
-                                }) {
-                                    Image("Share")
-                                }
-                                .frame(width: headerHeight, height: headerHeight)
-                            }
-
-                            Color(.lightGray).frame(width: 1, height: headerHeight)
-                            Button(action: {
-                            }) {
-                                Image("User")
-                            }
-                            .frame(width: headerHeight, height: headerHeight)
-                            
-                            Color(.lightGray).frame(width: 1, height: headerHeight)
-                            Button(action: {
-                                showMenu.value.toggle()
-                            }) {
-                                Image(showMenu.value ? "CloseMenu" : "Menu")
-                            }
-                            .frame(width: headerHeight, height: headerHeight)
-                        }
-                        
-                        Colors.jnsRed.frame(height: 1)
+                        WebView(webViewModel: webViewModel, contentOffset: $webViewContentOffset)
                     }
-                    .background(.white)
-                }
-                
-                ZStack(alignment: .top) {
-                    WebView(webViewModel: webViewModel, contentOffset: $webViewContentOffset)
                     
                     menuView
                         .frame(maxHeight: showMenu.value ? .infinity : 0)
@@ -154,7 +151,7 @@ struct ContentView: View {
                     .frame(maxWidth: .infinity)
                     .onTapGesture {
                         selectedBottomIndex = 0
-
+                        
                         webViewModel.urlString = Constants.HOMEPAGE_URL
                     }
                     
@@ -162,7 +159,7 @@ struct ContentView: View {
                         Image("Latest")
                             .renderingMode(.template)
                             .foregroundColor(selectedBottomIndex == 1 ? Colors.jnsRed: .black)
-
+                        
                         Text("LATEST")
                             .font(bottomBarFont)
                             .foregroundColor(selectedBottomIndex == 1 ? Colors.jnsRed: .black)
@@ -173,12 +170,12 @@ struct ContentView: View {
                         
                         webViewModel.urlString = Constants.LATEST_URL
                     }
-
+                    
                     VStack {
                         Image("Opinion")
                             .renderingMode(.template)
                             .foregroundColor(selectedBottomIndex == 2 ? Colors.jnsRed: .black)
-
+                        
                         Text("OPINION")
                             .font(bottomBarFont)
                             .foregroundColor(selectedBottomIndex == 2 ? Colors.jnsRed: .black)
@@ -189,12 +186,12 @@ struct ContentView: View {
                         
                         webViewModel.urlString = Constants.OPINION_URL
                     }
-
+                    
                     VStack {
                         Image("Media")
                             .renderingMode(.template)
                             .foregroundColor(selectedBottomIndex == 3 ? Colors.jnsRed: .black)
-
+                        
                         Text("MEDIA")
                             .font(bottomBarFont)
                             .foregroundColor(selectedBottomIndex == 3 ? Colors.jnsRed: .black)
@@ -210,7 +207,7 @@ struct ContentView: View {
                 .background(.white)
             }
             .animation(.linear(duration: Constants.PROMOTION_ANIMATION_DURATION), value: webViewContentOffset.y == 0)
-
+            
             if !webViewModel.isArticle {
                 HStack {
                     Image("LogoFrame").padding(.leading, 8)
@@ -221,6 +218,6 @@ struct ContentView: View {
         .environmentObject(webViewModel)
         .environmentObject(showMenu)
         .environmentObject(showLoginPopup)
-//        .ignoresSafeArea(edges: .bottom)
+        //        .ignoresSafeArea(edges: .bottom)
     }
 }
