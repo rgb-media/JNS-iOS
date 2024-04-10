@@ -9,6 +9,9 @@ import SwiftUI
 import Combine
 
 struct SearchView: View {
+    @EnvironmentObject var showMenu: ShowMenuObservable
+    @EnvironmentObject var webViewModel: WebViewModel
+
     private class TextFieldObserver : ObservableObject {
         @Published var debouncedText = ""
         @Published var searchText = ""
@@ -38,15 +41,23 @@ struct SearchView: View {
                 }
                 
                 TextField("", text: $textObserver.searchText)
+                    .onSubmit {
+                        webViewModel.urlString = "https://www.jns.org/?s=\(textObserver.searchText)"
+                        
+                        showMenu.value = false
+                    }
                     .font(Font.custom("FreightSansProBold-Regular", size: 16))
                     .multilineTextAlignment(.leading)
                     .foregroundColor(Color(hex: 0x282828))
-            }
-            .onReceive(textObserver.$debouncedText) { value in
-//                searchViewModel.getSearchResults(value)
+                    .submitLabel(.search)
             }
 
             Button(action: {
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+
+                webViewModel.urlString = "https://www.jns.org/?s=\(textObserver.searchText)"
+                
+                showMenu.value = false
             }) {
                 Text("SEARCH")
                     .font(Font.custom("FreightSansProBold-Regular", size: 16))

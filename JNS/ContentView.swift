@@ -218,6 +218,8 @@ struct ContentView: View {
                 }
             }
         }
+        .environmentObject(webViewModel)
+        .environmentObject(showMenu)
         .environmentObject(showLoginPopup)
 //        .ignoresSafeArea(edges: .bottom)
     }
