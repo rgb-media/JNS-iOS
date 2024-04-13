@@ -15,5 +15,7 @@
 		<string>FreightSansProSemibold-Italic.ttf</string>
 		<string>UtopiaStd-BoldDisp.ttf</string>
 	</array>
+	<key>UILaunchStoryboardName</key>
+	<string>Launch Screen</string>
 </dict>
 </plist>

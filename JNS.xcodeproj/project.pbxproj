@@ -38,6 +38,7 @@
 		19B37EB62BABC0450082CC26 /* ShowMenuObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B37EB52BABC0450082CC26 /* ShowMenuObservable.swift */; };
 		19B37EB82BABC98B0082CC26 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B37EB72BABC98B0082CC26 /* Extensions.swift */; };
 		19B37EBC2BABD4E20082CC26 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B37EBB2BABD4E20082CC26 /* WebView.swift */; };
+		19E049D92BCA175900E7BC60 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19E049D82BCA175900E7BC60 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		19B37EB52BABC0450082CC26 /* ShowMenuObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMenuObservable.swift; sourceTree = "<group>"; };
 		19B37EB72BABC98B0082CC26 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		19B37EBB2BABD4E20082CC26 /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		19E049D82BCA175900E7BC60 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 				19B37EA72BABB9300082CC26 /* Assets.xcassets */,
 				19AA4C162BBCBAD100063ACE /* Fonts */,
 				19B37EA92BABB9300082CC26 /* Preview Content */,
+				19E049D82BCA175900E7BC60 /* Launch Screen.storyboard */,
 			);
 			path = JNS;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				19AA4C222BBCBAF700063ACE /* UtopiaStd-BoldDisp.ttf in Resources */,
 				19AA4C292BBCBAF700063ACE /* FreightSansProBold-Italic.ttf in Resources */,
 				19AA4C282BBCBAF700063ACE /* FreightSansProBook-Italic.ttf in Resources */,
+				19E049D92BCA175900E7BC60 /* Launch Screen.storyboard in Resources */,
 				19AA4C272BBCBAF700063ACE /* FreightSansProMedium-Italic.ttf in Resources */,
 				19AA4C2A2BBCBAF700063ACE /* FreightSansProBlack-Italic.ttf in Resources */,
 				19AA4C242BBCBAF700063ACE /* FreightSansProSemibold-Italic.ttf in Resources */,
