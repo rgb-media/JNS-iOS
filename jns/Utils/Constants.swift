@@ -18,7 +18,7 @@ class Constants {
     public static let MENU_URL      =  HOMEPAGE_URL + "wp-content/themes/rgb/ajax/api/print_public_menus.php"
     
     public static let PROMOTION_ANIMATION_DURATION  = 0.5
-    public static let MENNU_ANIMATION_DURATION      = 0.7
+    public static let MENU_ANIMATION_DURATION       = 0.7
     
     // Debug
     public static let DEBUG_WEB_VIEW        = true

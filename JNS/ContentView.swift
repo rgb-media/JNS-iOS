@@ -133,7 +133,7 @@ struct ContentView: View {
                     
                     menuView
                         .frame(maxHeight: showMenu.value ? .infinity : 0)
-                        .animation(.linear(duration: Constants.MENNU_ANIMATION_DURATION), value: showMenu.value)
+                        .animation(.linear(duration: Constants.MENU_ANIMATION_DURATION), value: showMenu.value)
                 }
                 
                 Color(hex: 0x969696).frame(height: 1)

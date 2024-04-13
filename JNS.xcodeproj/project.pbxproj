@@ -39,6 +39,7 @@
 		19B37EB82BABC98B0082CC26 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B37EB72BABC98B0082CC26 /* Extensions.swift */; };
 		19B37EBC2BABD4E20082CC26 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B37EBB2BABD4E20082CC26 /* WebView.swift */; };
 		19E049D92BCA175900E7BC60 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19E049D82BCA175900E7BC60 /* Launch Screen.storyboard */; };
+		19E049DB2BCA1C4000E7BC60 /* MenuListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E049DA2BCA1C4000E7BC60 /* MenuListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		19B37EB72BABC98B0082CC26 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		19B37EBB2BABD4E20082CC26 /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		19E049D82BCA175900E7BC60 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		19E049DA2BCA1C4000E7BC60 /* MenuListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 		19B37EB12BABBB320082CC26 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				19E049DA2BCA1C4000E7BC60 /* MenuListCell.swift */,
 				19A6EBAB2BBE3A540000FC18 /* MenuView.swift */,
 				19A6EBAD2BBE50A10000FC18 /* SearchView.swift */,
 				19B37EBB2BABD4E20082CC26 /* WebView.swift */,
@@ -300,6 +303,7 @@
 				19AA4C3D2BBCE88C00063ACE /* WebViewModel.swift in Sources */,
 				19AA4C3F2BBCE8A400063ACE /* WebViewDelegate.swift in Sources */,
 				19AA4C412BBCE95A00063ACE /* LoginPopupObservable.swift in Sources */,
+				19E049DB2BCA1C4000E7BC60 /* MenuListCell.swift in Sources */,
 				19A6EBAC2BBE3A540000FC18 /* MenuView.swift in Sources */,
 				19AA4C2D2BBCC16700063ACE /* Constants.swift in Sources */,
 				19A6EBAA2BBE3A040000FC18 /* MenuViewModel.swift in Sources */,
