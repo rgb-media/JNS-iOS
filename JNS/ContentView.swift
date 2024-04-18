@@ -105,9 +105,9 @@ struct ContentView: View {
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                 
                                 Button(action: {
-                                    UIApplication.shared.open(URL(string: promotionViewModel.promotion.signup_url)!)
+                                    UIApplication.shared.open(URL(string: promotionViewModel.promotion.registed_user_url)!)
                                 }) {
-                                    Text(promotionViewModel.promotion.button_text)
+                                    Text(promotionViewModel.promotion.button_text ?? "DONATE")
                                         .font(promotionButtonFont)
                                 }
                                 .padding(.horizontal, 24)
@@ -115,7 +115,7 @@ struct ContentView: View {
                                 .foregroundColor(.white)
                                 .background(Capsule()
                                     .strokeBorder(.white, lineWidth: 1)
-                                    .background(Color(hex: promotionViewModel.promotion.button_color)))
+                                    .background(Color(hex: promotionViewModel.promotion.button_color ?? "#0000FF")))
                                 .clipShape(Capsule())
                                 
                                 Spacer().frame(width: 12)
