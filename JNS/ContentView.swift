@@ -130,10 +130,6 @@ struct ContentView: View {
                         
                         WebView(webViewModel: webViewModel, contentOffset: $webViewContentOffset)
                     }
-                    
-                    menuView
-                        .frame(maxHeight: showMenu.value ? .infinity : 0)
-                        .animation(.linear(duration: Constants.MENU_ANIMATION_DURATION), value: showMenu.value)
                 }
                 
                 Color(hex: 0x969696).frame(height: 1)
@@ -208,6 +204,14 @@ struct ContentView: View {
             }
             .animation(.linear(duration: Constants.PROMOTION_ANIMATION_DURATION), value: webViewContentOffset.y == 0)
             
+            VStack {
+                Spacer().frame(height: headerHeight + 7)
+                
+                menuView
+                    .frame(maxHeight: showMenu.value ? .infinity : 0)
+                    .animation(.linear(duration: Constants.MENU_ANIMATION_DURATION), value: showMenu.value)
+            }
+
             if !webViewModel.isArticle {
                 HStack {
                     Image("LogoFrame").padding(.leading, 8)

@@ -17,6 +17,10 @@ struct MenuView: View {
     
     @State private var pushNotificationsActive = false
 
+    init() {
+       UIScrollView.appearance().bounces = false
+    }
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
@@ -38,13 +42,9 @@ struct MenuView: View {
 
                 Spacer().frame(height: 16)
 
-                HStack {
-                    Text("More from JNS")
-                        .font(extraItemTextFont)
-                        .foregroundColor(.jnsBlack)
-                    
-                    Image("ArrowDown")
-                }
+                MenuListCell(menuItem: .init(name: "More from JNS",
+                                             link: "",
+                                             secondary_items: menuViewModel.more))
 
                 Spacer().frame(height: 16)
 

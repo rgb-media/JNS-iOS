@@ -10,7 +10,8 @@ import Combine
 
 class MenuViewModel: ObservableObject {
     @Published var menu = [MenuItem]()
-    
+    @Published var more = [String: MenuItem]()
+
     private var cancellableSet: Set<AnyCancellable> = []
     var dataManager: MenuServiceProtocol
     
@@ -28,6 +29,10 @@ class MenuViewModel: ObservableObject {
                 } else {
                     if let dictionary = dataResponse.value, let menu2 = dictionary["menu_id_2"] {
                         self.menu = menu2.sorted(by: { $0.0 < $1.0 }).map({ $0.1 })
+                    }
+
+                    if let dictionary = dataResponse.value, let menu3 = dictionary["menu_id_3"] {
+                        self.more = menu3
                     }
                 }
             }.store(in: &cancellableSet)
