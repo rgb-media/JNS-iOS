@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import Combine
 
 class Utils {
+    public static var subscriptions = Set<AnyCancellable>()
+
     public static func isArticle(url: URL) -> Bool {
         let components = url.pathComponents
         

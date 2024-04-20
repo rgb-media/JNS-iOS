@@ -16,7 +16,9 @@ class Constants {
     public static let PROMOTION_URL =  HOMEPAGE_URL + "wp-content/themes/rgb/ajax/api/print_header_banner_data.php"
 //    public static let MENU_URL      = "https://dl.dropbox.com/scl/fi/319btemyitcc42374rc8t/print_public_menus.php.json?rlkey=l4p8ogn83fiv9xu85bg1h9eg3&dl=0"
     public static let MENU_URL      =  HOMEPAGE_URL + "wp-content/themes/rgb/ajax/api/print_public_menus.php"
-    
+
+    public static let BREVO_URL     =  "https://api.brevo.com/v3/contacts"
+
     public static let PROMOTION_ANIMATION_DURATION  = 0.5
     public static let MENU_ANIMATION_DURATION       = 0.7
     

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		198942CD2BD45B240041C63F /* SubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198942CC2BD45B240041C63F /* SubscribeView.swift */; };
+		198942CF2BD45F4C0041C63F /* BrevoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198942CE2BD45F4C0041C63F /* BrevoService.swift */; };
+		198942D12BD45F9E0041C63F /* BrevoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198942D02BD45F9E0041C63F /* BrevoModel.swift */; };
 		19A6EBA62BBE38B60000FC18 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A6EBA52BBE38B60000FC18 /* MenuModel.swift */; };
 		19A6EBA82BBE39BE0000FC18 /* MenuService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A6EBA72BBE39BE0000FC18 /* MenuService.swift */; };
 		19A6EBAA2BBE3A040000FC18 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A6EBA92BBE3A040000FC18 /* MenuViewModel.swift */; };
@@ -45,6 +47,8 @@
 
 /* Begin PBXFileReference section */
 		198942CC2BD45B240041C63F /* SubscribeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeView.swift; sourceTree = "<group>"; };
+		198942CE2BD45F4C0041C63F /* BrevoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrevoService.swift; sourceTree = "<group>"; };
+		198942D02BD45F9E0041C63F /* BrevoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrevoModel.swift; sourceTree = "<group>"; };
 		19A6EBA52BBE38B60000FC18 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
 		19A6EBA72BBE39BE0000FC18 /* MenuService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuService.swift; sourceTree = "<group>"; };
 		19A6EBA92BBE3A040000FC18 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
@@ -113,6 +117,7 @@
 		19AA4C2E2BBCC25000063ACE /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				198942CE2BD45F4C0041C63F /* BrevoService.swift */,
 				19A6EBA72BBE39BE0000FC18 /* MenuService.swift */,
 				19AA4C2F2BBCC28B00063ACE /* PromotionService.swift */,
 			);
@@ -122,6 +127,7 @@
 		19AA4C362BBCC3B700063ACE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				198942D02BD45F9E0041C63F /* BrevoModel.swift */,
 				19A6EBA52BBE38B60000FC18 /* MenuModel.swift */,
 				19AA4C372BBCC3DE00063ACE /* PromotionModel.swift */,
 			);
@@ -301,9 +307,11 @@
 				19AA4C3B2BBCC50000063ACE /* PromotionViewModel.swift in Sources */,
 				19AA4C432BBCF1B200063ACE /* Utils.swift in Sources */,
 				19AA4C382BBCC3DE00063ACE /* PromotionModel.swift in Sources */,
+				198942CF2BD45F4C0041C63F /* BrevoService.swift in Sources */,
 				19B37EA62BABB92A0082CC26 /* ContentView.swift in Sources */,
 				19B37EBC2BABD4E20082CC26 /* WebView.swift in Sources */,
 				19AA4C3D2BBCE88C00063ACE /* WebViewModel.swift in Sources */,
+				198942D12BD45F9E0041C63F /* BrevoModel.swift in Sources */,
 				19AA4C3F2BBCE8A400063ACE /* WebViewDelegate.swift in Sources */,
 				19AA4C412BBCE95A00063ACE /* LoginPopupObservable.swift in Sources */,
 				19E049DB2BCA1C4000E7BC60 /* MenuListCell.swift in Sources */,

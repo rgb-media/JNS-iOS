@@ -30,6 +30,31 @@ struct SubscribeView: View {
     
     @StateObject private var textObserver = TextFieldObserver()
     
+    @State private var showAlert    = false
+    @State private var alertMessage = ""
+    
+    func signupTapped() {
+        BrevoService.shared.registerEmail(email: textObserver.searchText)
+            .sink { dataResponse in
+                showAlert = true
+                
+                var result = dataResponse.value
+                if result == nil, let data = dataResponse.data {
+                    result = try? JSONDecoder().decode(BrevoModel.self, from: data)
+                }
+
+                if result?.id != nil {
+                    alertMessage = "Newsletter subscription was successful!"
+                } else if let message = result?.message {
+                    alertMessage = message
+                } else {
+                    alertMessage = "An error has occured. Please try again later."
+                }
+            }.store(in: &Utils.subscriptions)
+
+        showMenu.value = false
+    }
+
     var body: some View {
         HStack {
             ZStack {
@@ -42,18 +67,18 @@ struct SubscribeView: View {
                 
                 TextField("", text: $textObserver.searchText)
                     .onSubmit {
-                        showMenu.value = false
+                        signupTapped()
                     }
                     .font(Font.custom("FreightSansProBold-Regular", size: 16))
                     .multilineTextAlignment(.leading)
                     .foregroundColor(.jnsBlack)
-                    .submitLabel(.search)
+                    .submitLabel(.send)
             }
 
             Button(action: {
                 UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-
-                showMenu.value = false
+                
+                signupTapped()
             }) {
                 Text("FREE SIGN UP")
                     .font(Font.custom("FreightSansProBold-Regular", size: 16))
@@ -74,5 +99,11 @@ struct SubscribeView: View {
             .strokeBorder(Color.jnsBlack, lineWidth: 1)
             .background(.white))
         .clipShape(Capsule())
+        .alert(isPresented: $showAlert) {
+            Alert(
+                title: Text("Newsletter"),
+                message: Text(alertMessage)
+            )
+        }
     }
 }

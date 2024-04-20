@@ -66,7 +66,6 @@ struct MenuView: View {
                     }
                 }
                 
-                
                 if subscribeExpanded {
                     Spacer().frame(height: 10)
 
