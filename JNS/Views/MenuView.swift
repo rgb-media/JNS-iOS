@@ -15,7 +15,8 @@ struct MenuView: View {
 
     @ObservedObject var menuViewModel = MenuViewModel()
     
-    @State private var pushNotificationsActive = false
+    @State private var pushNotificationsActive  = false
+    @State private var subscribeExpanded        = false
 
     init() {
        UIScrollView.appearance().bounces = false
@@ -57,7 +58,19 @@ struct MenuView: View {
                         .font(extraItemTextFont)
                         .foregroundColor(.jnsBlack)
                     
-                    Image("ArrowDown")
+                    Image(subscribeExpanded ? "ArrowUp" : "ArrowDown")
+                }
+                .onTapGesture {
+                    withAnimation(.easeInOut(duration: Constants.PROMOTION_ANIMATION_DURATION)) {
+                        subscribeExpanded.toggle()
+                    }
+                }
+                
+                
+                if subscribeExpanded {
+                    Spacer().frame(height: 10)
+
+                    SubscribeView()
                 }
 
                 Spacer().frame(height: 16)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		198942CD2BD45B240041C63F /* SubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198942CC2BD45B240041C63F /* SubscribeView.swift */; };
 		19A6EBA62BBE38B60000FC18 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A6EBA52BBE38B60000FC18 /* MenuModel.swift */; };
 		19A6EBA82BBE39BE0000FC18 /* MenuService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A6EBA72BBE39BE0000FC18 /* MenuService.swift */; };
 		19A6EBAA2BBE3A040000FC18 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A6EBA92BBE3A040000FC18 /* MenuViewModel.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		198942CC2BD45B240041C63F /* SubscribeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeView.swift; sourceTree = "<group>"; };
 		19A6EBA52BBE38B60000FC18 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
 		19A6EBA72BBE39BE0000FC18 /* MenuService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuService.swift; sourceTree = "<group>"; };
 		19A6EBA92BBE3A040000FC18 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				19E049DA2BCA1C4000E7BC60 /* MenuListCell.swift */,
 				19A6EBAB2BBE3A540000FC18 /* MenuView.swift */,
 				19A6EBAD2BBE50A10000FC18 /* SearchView.swift */,
+				198942CC2BD45B240041C63F /* SubscribeView.swift */,
 				19B37EBB2BABD4E20082CC26 /* WebView.swift */,
 				19AA4C3C2BBCE88C00063ACE /* WebViewModel.swift */,
 				19AA4C3E2BBCE8A400063ACE /* WebViewDelegate.swift */,
@@ -305,6 +308,7 @@
 				19AA4C412BBCE95A00063ACE /* LoginPopupObservable.swift in Sources */,
 				19E049DB2BCA1C4000E7BC60 /* MenuListCell.swift in Sources */,
 				19A6EBAC2BBE3A540000FC18 /* MenuView.swift in Sources */,
+				198942CD2BD45B240041C63F /* SubscribeView.swift in Sources */,
 				19AA4C2D2BBCC16700063ACE /* Constants.swift in Sources */,
 				19A6EBAA2BBE3A040000FC18 /* MenuViewModel.swift in Sources */,
 				19B37EA42BABB92A0082CC26 /* JNSApp.swift in Sources */,
