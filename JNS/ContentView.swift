@@ -75,6 +75,7 @@ struct ContentView: View {
                         
                         Color(.lightGray).frame(width: 1, height: headerHeight)
                         Button(action: {
+                            showLoginPopup.value = true
                         }) {
                             Image("User")
                         }
@@ -217,6 +218,10 @@ struct ContentView: View {
                     Image("LogoFrame").padding(.leading, 8)
                     Spacer()
                 }
+            }
+            
+            if showLoginPopup.value {
+                LoginView()
             }
         }
         .environmentObject(webViewModel)

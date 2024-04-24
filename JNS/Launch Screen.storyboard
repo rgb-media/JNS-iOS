@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoFrame" translatesAutoresizingMaskIntoConstraints="NO" id="LXr-Ob-SGg">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash" translatesAutoresizingMaskIntoConstraints="NO" id="LXr-Ob-SGg">
                                 <rect key="frame" x="98.333333333333329" y="364.33333333333331" width="196.33333333333337" height="148.33333333333331"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="LXr-Ob-SGg" secondAttribute="height" multiplier="106:80" id="LaS-0q-Wog"/>
@@ -37,6 +37,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LogoFrame" width="106" height="80"/>
+        <image name="Splash" width="220" height="170"/>
     </resources>
 </document>

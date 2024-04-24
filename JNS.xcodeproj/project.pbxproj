@@ -10,6 +10,7 @@
 		198942CD2BD45B240041C63F /* SubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198942CC2BD45B240041C63F /* SubscribeView.swift */; };
 		198942CF2BD45F4C0041C63F /* BrevoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198942CE2BD45F4C0041C63F /* BrevoService.swift */; };
 		198942D12BD45F9E0041C63F /* BrevoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198942D02BD45F9E0041C63F /* BrevoModel.swift */; };
+		198ADD112BD985B300FCBB3B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198ADD102BD985B300FCBB3B /* LoginView.swift */; };
 		19A6EBA62BBE38B60000FC18 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A6EBA52BBE38B60000FC18 /* MenuModel.swift */; };
 		19A6EBA82BBE39BE0000FC18 /* MenuService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A6EBA72BBE39BE0000FC18 /* MenuService.swift */; };
 		19A6EBAA2BBE3A040000FC18 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A6EBA92BBE3A040000FC18 /* MenuViewModel.swift */; };
@@ -49,6 +50,7 @@
 		198942CC2BD45B240041C63F /* SubscribeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeView.swift; sourceTree = "<group>"; };
 		198942CE2BD45F4C0041C63F /* BrevoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrevoService.swift; sourceTree = "<group>"; };
 		198942D02BD45F9E0041C63F /* BrevoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrevoModel.swift; sourceTree = "<group>"; };
+		198ADD102BD985B300FCBB3B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		19A6EBA52BBE38B60000FC18 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
 		19A6EBA72BBE39BE0000FC18 /* MenuService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuService.swift; sourceTree = "<group>"; };
 		19A6EBA92BBE3A040000FC18 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 		19B37EB12BABBB320082CC26 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				198ADD102BD985B300FCBB3B /* LoginView.swift */,
 				19E049DA2BCA1C4000E7BC60 /* MenuListCell.swift */,
 				19A6EBAB2BBE3A540000FC18 /* MenuView.swift */,
 				19A6EBAD2BBE50A10000FC18 /* SearchView.swift */,
@@ -303,6 +306,7 @@
 				19A6EBAE2BBE50A10000FC18 /* SearchView.swift in Sources */,
 				19AA4C302BBCC28B00063ACE /* PromotionService.swift in Sources */,
 				19A6EBA82BBE39BE0000FC18 /* MenuService.swift in Sources */,
+				198ADD112BD985B300FCBB3B /* LoginView.swift in Sources */,
 				19A6EBA62BBE38B60000FC18 /* MenuModel.swift in Sources */,
 				19AA4C3B2BBCC50000063ACE /* PromotionViewModel.swift in Sources */,
 				19AA4C432BBCF1B200063ACE /* Utils.swift in Sources */,
@@ -458,6 +462,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JNS/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.news";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -467,7 +472,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rgbmedia.JNS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -488,6 +493,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JNS/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.news";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -497,7 +503,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rgbmedia.JNS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
