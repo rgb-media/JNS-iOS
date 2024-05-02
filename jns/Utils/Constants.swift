@@ -19,8 +19,8 @@ class Constants {
 
     public static let BREVO_URL     =  "https://api.brevo.com/v3/contacts"
 
-    public static let PROMOTION_ANIMATION_DURATION  = 0.5
-    public static let MENU_ANIMATION_DURATION       = 0.7
+    public static let PROMOTION_ANIMATION_DURATION  = 0.3
+    public static let MENU_ANIMATION_DURATION       = 0.4
     
     // Debug
     public static let DEBUG_WEB_VIEW        = true

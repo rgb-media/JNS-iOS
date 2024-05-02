@@ -13,6 +13,8 @@ struct MenuView: View {
     private let pushSubItemTextFont     = Font.custom("FreightSansProBook-Regular", size: 16)
     private let copyrightTextFont       = Font.custom("FreightSansProBook-Regular", size: 13)
 
+    @EnvironmentObject var showMenu: ShowMenuObservable
+
     @ObservedObject var menuViewModel = MenuViewModel()
     
     @State private var pushNotificationsActive  = false
@@ -45,7 +47,8 @@ struct MenuView: View {
 
                 MenuListCell(menuItem: .init(name: "More from JNS",
                                              link: "",
-                                             secondary_items: menuViewModel.more))
+                                             secondary_items: menuViewModel.more),
+                             smallFont: true)
 
                 Spacer().frame(height: 16)
 
@@ -63,6 +66,11 @@ struct MenuView: View {
                 .onTapGesture {
                     withAnimation(.easeInOut(duration: Constants.PROMOTION_ANIMATION_DURATION)) {
                         subscribeExpanded.toggle()
+                    }
+                }
+                .onChange(of: showMenu.value) {
+                    if !$0 {
+                        subscribeExpanded = false
                     }
                 }
                 
@@ -92,7 +100,9 @@ struct MenuView: View {
                     }
                     
                     Toggle("", isOn: $pushNotificationsActive)
-                        .tint(.jnsBlack)
+                        .toggleStyle(CustomToggleStyle(onColor: .jnsBlack,
+                                                       offColor: Color(red: 1, green: 1, blue: 1, opacity: 0.35),
+                                                       thumbColor: .white))
                     
                     Spacer().frame(width: 18)
                 }
@@ -189,5 +199,33 @@ struct MenuView: View {
             .padding(.horizontal, 18)
         }
         .background(.white)
+    }
+}
+
+struct CustomToggleStyle: ToggleStyle {
+    var onColor: Color
+    var offColor: Color
+    var thumbColor: Color
+
+    func makeBody(configuration: Self.Configuration) -> some View {
+        HStack {
+            configuration.label
+                .font(.body)
+            Spacer()
+            RoundedRectangle(cornerRadius: 16, style: .circular)
+                .fill(configuration.isOn ? onColor : offColor)
+                .frame(width: 50, height: 30)
+                .overlay(
+                    Circle()
+                        .fill(thumbColor)
+                        .padding(2)
+                        .offset(x: configuration.isOn ? 10 : -10)
+                )
+                .onTapGesture {
+                    withAnimation(.smooth(duration: 0.2)) {
+                        configuration.isOn.toggle()
+                    }
+                }
+        }
     }
 }

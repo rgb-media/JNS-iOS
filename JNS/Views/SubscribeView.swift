@@ -69,7 +69,7 @@ struct SubscribeView: View {
                     .onSubmit {
                         signupTapped()
                     }
-                    .font(Font.custom("FreightSansProBold-Regular", size: 16))
+                    .font(Font.custom("FreightSansProBook-Regular", size: 16))
                     .multilineTextAlignment(.leading)
                     .foregroundColor(.jnsBlack)
                     .submitLabel(.send)

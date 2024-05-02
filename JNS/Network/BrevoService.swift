@@ -23,7 +23,7 @@ extension BrevoService: BrevoServiceProtocol {
         let url = URL(string: Constants.BREVO_URL)!
         
         let headers: HTTPHeaders? = ["content-type": "application/json",
-                                     "api-key": "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"]
+                                     "api-key": "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"]
         let parameters: Parameters? = ["email": email]
 
         return AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)

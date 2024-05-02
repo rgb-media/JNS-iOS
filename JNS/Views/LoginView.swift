@@ -20,7 +20,7 @@ struct LoginView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            Color(red: 0, green: 0, blue: 0, opacity: 0.7)
+            Spacer()
 
             VStack(spacing: 0) {
                 Color(hex: 0xA5181B).frame(maxWidth: .infinity, minHeight: 10, maxHeight: 10)
@@ -67,10 +67,11 @@ struct LoginView: View {
 
                     TextField("", text: $email)
                         .frame(height: 42)
+                        .padding(.horizontal, 10)
                         .font(fieldsTextFont)
                         .foregroundColor(.jnsBlack)
                         .background(Color(hex: 0xF8F8F8))
-                        .border(Color.jnsBlack)
+                        .border(Color.jnsGray)
 
                     Spacer().frame(width: 40)
                 }
@@ -83,7 +84,7 @@ struct LoginView: View {
                     Text("Password *")
                         .font(fieldsTextFont)
                         .foregroundColor(.jnsBlack)
-                    
+
                     Spacer()
                 }
                 
@@ -94,10 +95,11 @@ struct LoginView: View {
 
                     TextField("", text: $password)
                         .frame(height: 42)
+                        .padding(.horizontal, 10)
                         .font(fieldsTextFont)
                         .foregroundColor(.jnsBlack)
                         .background(Color(hex: 0xF8F8F8))
-                        .border(Color.jnsBlack)
+                        .border(Color.jnsGray)
 
                     Spacer().frame(width: 40)
                 }
@@ -107,10 +109,14 @@ struct LoginView: View {
                 HStack(spacing: 0) {
                     Spacer().frame(width: 40)
                     
-                    Text("Forgot your password?")
-                        .font(fieldsTextFont)
-                        .foregroundColor(Color(hex: 0x3399FF))
-                    
+                    Button(action: {
+                        UIApplication.shared.open(URL(string: "https://crm.jns.org/log-in?referral=aHR0cHM6Ly93d3cuam5zLm9yZw==#ForgotPassword")!)
+                    }) {
+                        Text("Forgot your password?")
+                            .font(fieldsTextFont)
+                            .foregroundColor(Color(hex: 0x3399FF))
+                    }
+
                     Spacer()
                 }
                 
@@ -146,10 +152,10 @@ struct LoginView: View {
                     UIApplication.shared.open(URL(string: "https://crm.jns.org/sign-up")!)
                 }
                 
-                Spacer().frame(height: 80)
+                Spacer().frame(height: 40)
             }
             .background(.white)
         }
-        .background(Color(red: 0, green: 0, blue: 0, opacity: 0.7))
+//        .background(Color(red: 0, green: 0, blue: 0, opacity: 0.7))
     }
 }

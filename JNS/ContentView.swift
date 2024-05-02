@@ -122,8 +122,7 @@ struct ContentView: View {
                                 Spacer().frame(width: 12)
                             }
                             .background(AsyncImage(url: URL(string: promotionViewModel.promotion.img_full_url))
-                                .aspectRatio(contentMode: .fill)
-                                .containerRelativeFrame([.horizontal, .vertical]))
+                                .aspectRatio(contentMode: .fill))
                             .clipped()
                             .contentShape(Rectangle())
                             .transition(.move(edge: .top))
@@ -133,7 +132,7 @@ struct ContentView: View {
                     }
                 }
                 
-                Color(hex: 0x969696).frame(height: 1)
+                Color.jnsGray.frame(height: 1)
                 
                 HStack(spacing: 0) {
                     VStack {
@@ -201,7 +200,6 @@ struct ContentView: View {
                     }
                 }
                 .frame(height: 60)
-                .background(.white)
             }
             .animation(.linear(duration: Constants.PROMOTION_ANIMATION_DURATION), value: webViewContentOffset.y == 0)
             
@@ -221,12 +219,17 @@ struct ContentView: View {
             }
             
             if showLoginPopup.value {
-                LoginView()
+                Color(red: 0, green: 0, blue: 0, opacity: 0.7)
             }
+            
+            LoginView()
+                .transition(.move(edge: .bottom))
+                .offset(y: showLoginPopup.value ? 0 : UIScreen.main.bounds.height)
+                .animation(.linear(duration: Constants.MENU_ANIMATION_DURATION), value: showLoginPopup.value)
         }
         .environmentObject(webViewModel)
         .environmentObject(showMenu)
         .environmentObject(showLoginPopup)
-        //        .ignoresSafeArea(edges: .bottom)
+//        .ignoresSafeArea(edges: .bottom)
     }
 }
