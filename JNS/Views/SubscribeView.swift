@@ -11,6 +11,7 @@ import Combine
 struct SubscribeView: View {
     @EnvironmentObject var showMenu: ShowMenuObservable
     @EnvironmentObject var webViewModel: WebViewModel
+    @EnvironmentObject var showAlert: ShowAlertObservable
 
     private class TextFieldObserver : ObservableObject {
         @Published var debouncedText = ""
@@ -30,13 +31,11 @@ struct SubscribeView: View {
     
     @StateObject private var textObserver = TextFieldObserver()
     
-    @State private var showAlert    = false
-    @State private var alertMessage = ""
-    
     func signupTapped() {
         BrevoService.shared.registerEmail(email: textObserver.searchText)
             .sink { dataResponse in
-                showAlert = true
+                showAlert.show = true
+                showAlert.title = "NEWSLETTER"
                 
                 var result = dataResponse.value
                 if result == nil, let data = dataResponse.data {
@@ -44,11 +43,11 @@ struct SubscribeView: View {
                 }
 
                 if result?.id != nil {
-                    alertMessage = "Newsletter subscription was successful!"
+                    showAlert.body = "Newsletter subscription was successful!"
                 } else if let message = result?.message {
-                    alertMessage = message
+                    showAlert.body = message
                 } else {
-                    alertMessage = "An error has occured. Please try again later."
+                    showAlert.body = "An error has occured. Please try again later."
                 }
             }.store(in: &Utils.subscriptions)
 
@@ -99,11 +98,5 @@ struct SubscribeView: View {
             .strokeBorder(Color.jnsBlack, lineWidth: 1)
             .background(.white))
         .clipShape(Capsule())
-        .alert(isPresented: $showAlert) {
-            Alert(
-                title: Text("Newsletter"),
-                message: Text(alertMessage)
-            )
-        }
     }
 }

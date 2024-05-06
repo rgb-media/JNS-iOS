@@ -13,16 +13,19 @@ struct ContentView: View {
     private let promotionTextFont   = Font.custom("FreightSansProBlack-Regular", size: 20)
     private let promotionButtonFont = Font.custom("FreightSansProBlack-Regular", size: 16)
     private let bottomBarFont       = Font.custom("FreightSansProBook-Regular", size: 12)
-    
+    private let loginMenuFont       = Font.custom("FreightSansProBook-Regular", size: 18)
+
     private let menuView = MenuView()
     
     @State var webViewContentOffset = CGPoint(x: 0, y: 0)
     @State var selectedBottomIndex  = 0
+    @State var showLoggedInMenu     = false
     
     @StateObject var webViewModel   = WebViewModel()
     @StateObject var showMenu       = ShowMenuObservable()
     @StateObject var showLoginPopup = LoginPopupObservable()
-    
+    @StateObject var showAlert      = ShowAlertObservable()
+
     @ObservedObject var promotionViewModel = PromotionViewModel()
     
     var body: some View {
@@ -75,7 +78,11 @@ struct ContentView: View {
                         
                         Color(.lightGray).frame(width: 1, height: headerHeight)
                         Button(action: {
-                            showLoginPopup.value = true
+                            if LoginState.shared.isLoggedIn {
+                                showLoggedInMenu = !showLoggedInMenu
+                            } else {
+                                showLoginPopup.value = true
+                            }
                         }) {
                             Image("User")
                         }
@@ -218,6 +225,56 @@ struct ContentView: View {
                 }
             }
             
+            if showLoggedInMenu {
+                HStack {
+                    Spacer()
+                    
+                    VStack {
+                        Spacer().frame(height: 15)
+                                                
+                        Button(action: {
+                            UIApplication.shared.open(URL(string: "https://crm.jns.org/profile")!)
+                            
+                            showLoggedInMenu = false
+                        }) {
+                            Text("My Profile")
+                                .font(loginMenuFont)
+                                .foregroundColor(.jnsBlack)
+                        }
+                        
+                        Spacer().frame(height: 8)
+
+                        Button(action: {
+                            UIApplication.shared.open(URL(string: "https://crm.jns.org/support")!)
+                            
+                            showLoggedInMenu = false
+                        }) {
+                            Text("Support")
+                                .font(loginMenuFont)
+                                .foregroundColor(.jnsBlack)
+                        }
+                        
+                        Spacer().frame(height: 8)
+
+                        Button(action: {
+                            LoginState.shared.isLoggedIn = false
+                            
+                            showLoggedInMenu = false
+                        }) {
+                            Text("Log out")
+                                .font(loginMenuFont)
+                                .foregroundColor(.jnsBlack)
+                        }
+                        
+                        Spacer().frame(height: 15)
+                    }
+                    .frame(width: 2 * headerHeight + 2)
+                    .background(.white)
+                    .border(Color.jnsRed)
+                }
+                .padding(.top, headerHeight + 6)
+            }
+            
             if showLoginPopup.value {
                 Color(red: 0, green: 0, blue: 0, opacity: 0.7)
             }
@@ -230,6 +287,13 @@ struct ContentView: View {
         .environmentObject(webViewModel)
         .environmentObject(showMenu)
         .environmentObject(showLoginPopup)
+        .environmentObject(showAlert)
+        .alert(isPresented: $showAlert.show) {
+            Alert(
+                title: Text(showAlert.title),
+                message: Text(showAlert.body)
+            )
+        }
 //        .ignoresSafeArea(edges: .bottom)
     }
 }

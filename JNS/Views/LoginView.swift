@@ -12,11 +12,11 @@ struct LoginView: View {
     private let fieldsTextFont  = Font.custom("FreightSansProBook-Regular", size: 16)
     private let registerFont    = Font.custom("FreightSansProBold-Regular", size: 16)
 
-    @EnvironmentObject var showMenu: ShowMenuObservable
     @EnvironmentObject var showLoginPopup: LoginPopupObservable
-    
-    @State private var email    = ""
-    @State private var password = ""
+    @EnvironmentObject var showAlert: ShowAlertObservable
+
+    @State private var email    = "gal@rgbmedia.org"
+    @State private var password = "123"
 
     var body: some View {
         VStack(spacing: 0) {
@@ -93,7 +93,7 @@ struct LoginView: View {
                 HStack(spacing: 0) {
                     Spacer().frame(width: 40)
 
-                    TextField("", text: $password)
+                    SecureField("", text: $password)
                         .frame(height: 42)
                         .padding(.horizontal, 10)
                         .font(fieldsTextFont)
@@ -123,6 +123,28 @@ struct LoginView: View {
                 Spacer().frame(height: 40)
                 
                 Button(action: {
+                    LoginService.shared.sendLogin(email: email, password: password)
+                        .sink { dataResponse in
+                            showAlert.show = true
+                            showAlert.title = "LOGIN"
+
+                            var result = dataResponse.value
+                            if result == nil, let data = dataResponse.data {
+                                result = try? JSONDecoder().decode(LoginModel.self, from: data)
+                            }
+
+                            if result?.id != nil {
+                                LoginState.shared.isLoggedIn = true
+                                
+                                showAlert.body = "Login was successful!"
+                            } else if let message = result?.message {
+                                showAlert.body = message
+                            } else {
+                                showAlert.body = "An error has occured. Please try again later."
+                            }
+                        }.store(in: &Utils.subscriptions)
+                    
+                    showLoginPopup.value = false
                 }) {
                     Text("LOG IN")
                         .font(Font.custom("FreightSansProBold-Regular", size: 20))

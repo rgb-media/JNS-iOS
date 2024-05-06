@@ -22,7 +22,7 @@ extension PromotionService: PromotionServiceProtocol {
     func fetchPromotion() -> AnyPublisher<DataResponse<PromotionModel, AFError>, Never> {
         let url = URL(string: Constants.PROMOTION_URL)!
         
-        let headers: HTTPHeaders? = ["app-secret": "e6f8bc2ceaa3206dc0ccc671326727db"]
+        let headers: HTTPHeaders? = ["app-secret": Constants.APP_SECRET]
 
         return AF.request(url, method: .get, headers: headers)
             .validate()
