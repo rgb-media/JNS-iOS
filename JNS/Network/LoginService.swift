@@ -22,7 +22,7 @@ extension LoginService: LoginServiceProtocol {
     func sendLogin(email: String, password: String) -> AnyPublisher<DataResponse<LoginModel, AFError>, Never> {
         let url = URL(string: Constants.LOGIN_URL)!
         
-        let headers: HTTPHeaders? = ["app-secret": Constants.APP_SECRET]
+        let headers: HTTPHeaders? = ["app-secret": Config.APP_SECRET]
         let parameters: Parameters? = ["email": email, "password": password]
 
         return AF.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: headers)

@@ -15,8 +15,8 @@ struct LoginView: View {
     @EnvironmentObject var showLoginPopup: LoginPopupObservable
     @EnvironmentObject var showAlert: ShowAlertObservable
 
-    @State private var email    = "gal@rgbmedia.org"
-    @State private var password = "123"
+    @State private var email    = ""// gal@rgbmedia.org"
+    @State private var password = ""// 123"
 
     var body: some View {
         VStack(spacing: 0) {

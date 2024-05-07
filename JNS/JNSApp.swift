@@ -9,6 +9,10 @@ import SwiftUI
 
 @main
 struct JNSApp: App {
+    init() {
+        Config.loadFromFile()
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

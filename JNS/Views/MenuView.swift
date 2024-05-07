@@ -119,7 +119,7 @@ struct MenuView: View {
                     
                     HStack(spacing: 0) {
                         Button(action: {
-                            UIApplication.shared.open(URL(string: "whatsapp://send?text=https://apps.apple.com/us/app/the-times-of-israel/id1006406749")!)
+                            UIApplication.shared.open(URL(string: "whatsapp://send?text=https://itunes.apple.com/us/app/apple-store/id6499280713")!)
                         }) {
                             Image("Whatsapp")
                         }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		198107F02BE975E6008FA5E3 /* ShowAlertObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198107EF2BE975E6008FA5E3 /* ShowAlertObservable.swift */; };
 		198107F22BE97D0B008FA5E3 /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198107F12BE97D0B008FA5E3 /* LoginState.swift */; };
+		19821AB22BE9FFB80051E587 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19821AB12BE9FFB80051E587 /* Config.swift */; };
 		198942CD2BD45B240041C63F /* SubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198942CC2BD45B240041C63F /* SubscribeView.swift */; };
 		198942CF2BD45F4C0041C63F /* BrevoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198942CE2BD45F4C0041C63F /* BrevoService.swift */; };
 		198942D12BD45F9E0041C63F /* BrevoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198942D02BD45F9E0041C63F /* BrevoModel.swift */; };
@@ -53,6 +54,7 @@
 /* Begin PBXFileReference section */
 		198107EF2BE975E6008FA5E3 /* ShowAlertObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlertObservable.swift; sourceTree = "<group>"; };
 		198107F12BE97D0B008FA5E3 /* LoginState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginState.swift; sourceTree = "<group>"; };
+		19821AB12BE9FFB80051E587 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		198942CC2BD45B240041C63F /* SubscribeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeView.swift; sourceTree = "<group>"; };
 		198942CE2BD45F4C0041C63F /* BrevoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrevoService.swift; sourceTree = "<group>"; };
 		198942D02BD45F9E0041C63F /* BrevoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrevoModel.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 		19B37EB42BABC0290082CC26 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				19821AB12BE9FFB80051E587 /* Config.swift */,
 				19AA4C2C2BBCC16700063ACE /* Constants.swift */,
 				19B37EB72BABC98B0082CC26 /* Extensions.swift */,
 				19AA4C402BBCE95A00063ACE /* LoginPopupObservable.swift */,
@@ -331,6 +334,7 @@
 				19B37EBC2BABD4E20082CC26 /* WebView.swift in Sources */,
 				19AA4C3D2BBCE88C00063ACE /* WebViewModel.swift in Sources */,
 				198942D12BD45F9E0041C63F /* BrevoModel.swift in Sources */,
+				19821AB22BE9FFB80051E587 /* Config.swift in Sources */,
 				198107F02BE975E6008FA5E3 /* ShowAlertObservable.swift in Sources */,
 				19AA4C3F2BBCE8A400063ACE /* WebViewDelegate.swift in Sources */,
 				19AA4C412BBCE95A00063ACE /* LoginPopupObservable.swift in Sources */,
@@ -472,7 +476,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"JNS/Preview Content\"";
 				DEVELOPMENT_TEAM = A6HMB4KPG2;
 				ENABLE_PREVIEWS = YES;
@@ -489,7 +493,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.2;
+				MARKETING_VERSION = 0.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rgbmedia.JNS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -504,7 +508,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"JNS/Preview Content\"";
 				DEVELOPMENT_TEAM = A6HMB4KPG2;
 				ENABLE_PREVIEWS = YES;
@@ -521,7 +525,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.2;
+				MARKETING_VERSION = 0.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rgbmedia.JNS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

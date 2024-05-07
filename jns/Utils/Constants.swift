@@ -18,9 +18,6 @@ class Constants {
 
     public static let BREVO_URL     =  "https://api.brevo.com/v3/contacts"
     
-    public static let APP_SECRET    = "s2lekaqc8dmo73q7b8xs1fyddp2t2zn1"
-    public static let BREVO_API_KEY = "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"
-
     public static let PROMOTION_ANIMATION_DURATION  = 0.3
     public static let MENU_ANIMATION_DURATION       = 0.4
     

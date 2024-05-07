@@ -22,7 +22,7 @@ extension MenuService: MenuServiceProtocol {
     func fetchMenu() -> AnyPublisher<DataResponse<MenuModel, AFError>, Never> {
         let url = URL(string: Constants.MENU_URL)!
         
-        let headers: HTTPHeaders? = ["app-secret": Constants.APP_SECRET]
+        let headers: HTTPHeaders? = ["app-secret": Config.APP_SECRET]
         
         return AF.request(url, method: .get, headers: headers)
             .validate()
