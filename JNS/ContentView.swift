@@ -25,6 +25,7 @@ struct ContentView: View {
     @StateObject var showMenu       = ShowMenuObservable()
     @StateObject var showLoginPopup = LoginPopupObservable()
     @StateObject var showAlert      = ShowAlertObservable()
+    @StateObject var hasComments    = HasCommentsObservable()
 
     @ObservedObject var promotionViewModel = PromotionViewModel()
     
@@ -76,6 +77,15 @@ struct ContentView: View {
                             .frame(width: headerHeight, height: headerHeight)
                         }
                         
+                        if hasComments.value {
+                            Color(.lightGray).frame(width: 1, height: headerHeight)
+                            Button(action: {
+                            }) {
+                                Image("Comment")
+                            }
+                            .frame(width: headerHeight, height: headerHeight)
+                        }
+                        
                         Color(.lightGray).frame(width: 1, height: headerHeight)
                         Button(action: {
                             if LoginState.shared.isLoggedIn {
@@ -90,6 +100,8 @@ struct ContentView: View {
                         
                         Color(.lightGray).frame(width: 1, height: headerHeight)
                         Button(action: {
+                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+
                             showMenu.value.toggle()
                         }) {
                             Image(showMenu.value ? "CloseMenu" : "Menu")
@@ -120,10 +132,10 @@ struct ContentView: View {
                                 }
                                 .padding(.horizontal, 24)
                                 .padding(.vertical, 8)
-                                .foregroundColor(.white)
+                                .foregroundColor(Color(hex: promotionViewModel.promotion.button_color ?? "#0000FF"))
                                 .background(Capsule()
                                     .strokeBorder(.white, lineWidth: 1)
-                                    .background(Color(hex: promotionViewModel.promotion.button_color ?? "#0000FF")))
+                                    .background(Color(hex: promotionViewModel.promotion.button_bg_color ?? "#FFFFFF")))
                                 .clipShape(Capsule())
                                 
                                 Spacer().frame(width: 12)
@@ -229,7 +241,7 @@ struct ContentView: View {
                 HStack {
                     Spacer()
                     
-                    VStack {
+                    VStack(alignment: .leading) {
                         Spacer().frame(height: 15)
                                                 
                         Button(action: {
@@ -260,6 +272,8 @@ struct ContentView: View {
                             LoginState.shared.isLoggedIn = false
                             
                             showLoggedInMenu = false
+                            
+                            hasComments.value = false
                         }) {
                             Text("Log out")
                                 .font(loginMenuFont)
@@ -283,6 +297,7 @@ struct ContentView: View {
                 .transition(.move(edge: .bottom))
                 .offset(y: showLoginPopup.value ? 0 : UIScreen.main.bounds.height)
                 .animation(.linear(duration: Constants.MENU_ANIMATION_DURATION), value: showLoginPopup.value)
+                .environmentObject(hasComments)
         }
         .environmentObject(webViewModel)
         .environmentObject(showMenu)
@@ -294,6 +309,7 @@ struct ContentView: View {
                 message: Text(showAlert.body)
             )
         }
-//        .ignoresSafeArea(edges: .bottom)
+        .padding(.bottom, 8)
+        .ignoresSafeArea(edges: .bottom)
     }
 }

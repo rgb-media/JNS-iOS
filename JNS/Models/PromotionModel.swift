@@ -11,4 +11,5 @@ struct PromotionModel: Decodable {
     let registed_user_url: String
     let button_text: String?
     let button_color: String?
+    let button_bg_color: String?
 }

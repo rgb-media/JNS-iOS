@@ -14,9 +14,11 @@ struct LoginView: View {
 
     @EnvironmentObject var showLoginPopup: LoginPopupObservable
     @EnvironmentObject var showAlert: ShowAlertObservable
+    @EnvironmentObject var webViewModel: WebViewModel
+    @EnvironmentObject var hasComments: HasCommentsObservable
 
-    @State private var email    = ""// gal@rgbmedia.org"
-    @State private var password = ""// 123"
+    @State private var email    = "gal@rgbmedia.org"
+    @State private var password = "123"
 
     var body: some View {
         VStack(spacing: 0) {
@@ -28,6 +30,8 @@ struct LoginView: View {
                 HStack {
                     Spacer()
                     Button(action: {
+                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+
                         showLoginPopup.value = false
                     }) {
                         Image("Close")
@@ -136,6 +140,12 @@ struct LoginView: View {
                             if result?.id != nil {
                                 LoginState.shared.isLoggedIn = true
                                 
+                                if let loginModel = result {
+                                    webViewModel.loginCookies = Utils.getCookiesFromLoginModel(loginModel)
+                                    
+                                    hasComments.value = loginModel.hasComments ?? false
+                                }
+                                
                                 showAlert.body = "Login was successful!"
                             } else if let message = result?.message {
                                 showAlert.body = message
@@ -144,7 +154,7 @@ struct LoginView: View {
                             }
                         }.store(in: &Utils.subscriptions)
                     
-                    showLoginPopup.value = false
+//                    showLoginPopup.value = false
                 }) {
                     Text("LOG IN")
                         .font(Font.custom("FreightSansProBold-Regular", size: 20))

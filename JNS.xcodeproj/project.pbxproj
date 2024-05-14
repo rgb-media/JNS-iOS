@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1975A2552BF2D6E900E45566 /* HasCommentsObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975A2542BF2D6E900E45566 /* HasCommentsObservable.swift */; };
 		198107F02BE975E6008FA5E3 /* ShowAlertObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198107EF2BE975E6008FA5E3 /* ShowAlertObservable.swift */; };
 		198107F22BE97D0B008FA5E3 /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198107F12BE97D0B008FA5E3 /* LoginState.swift */; };
 		19821AB22BE9FFB80051E587 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19821AB12BE9FFB80051E587 /* Config.swift */; };
@@ -53,6 +54,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1975A2542BF2D6E900E45566 /* HasCommentsObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasCommentsObservable.swift; sourceTree = "<group>"; };
 		198107EF2BE975E6008FA5E3 /* ShowAlertObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlertObservable.swift; sourceTree = "<group>"; };
 		198107F12BE97D0B008FA5E3 /* LoginState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginState.swift; sourceTree = "<group>"; };
 		19821AB12BE9FFB80051E587 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				19821AB12BE9FFB80051E587 /* Config.swift */,
 				19AA4C2C2BBCC16700063ACE /* Constants.swift */,
 				19B37EB72BABC98B0082CC26 /* Extensions.swift */,
+				1975A2542BF2D6E900E45566 /* HasCommentsObservable.swift */,
 				19AA4C402BBCE95A00063ACE /* LoginPopupObservable.swift */,
 				198107F12BE97D0B008FA5E3 /* LoginState.swift */,
 				198107EF2BE975E6008FA5E3 /* ShowAlertObservable.swift */,
@@ -339,6 +342,7 @@
 				19AA4C3D2BBCE88C00063ACE /* WebViewModel.swift in Sources */,
 				198942D12BD45F9E0041C63F /* BrevoModel.swift in Sources */,
 				19821AB22BE9FFB80051E587 /* Config.swift in Sources */,
+				1975A2552BF2D6E900E45566 /* HasCommentsObservable.swift in Sources */,
 				198107F02BE975E6008FA5E3 /* ShowAlertObservable.swift in Sources */,
 				19AA4C3F2BBCE8A400063ACE /* WebViewDelegate.swift in Sources */,
 				19AA4C412BBCE95A00063ACE /* LoginPopupObservable.swift in Sources */,

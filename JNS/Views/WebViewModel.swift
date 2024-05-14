@@ -14,14 +14,7 @@ class WebViewModel: ObservableObject {
     @Published var canGoForward = false
     @Published var isLoading    = false
     @Published var isArticle    = false
-    @Published var loginCookie  = HTTPCookie(properties: [
-        .domain: ".zman.co.il",
-        .path: "/",
-        .name: "dummy_data",
-        .value: "{}",
-        .secure: "TRUE",
-        .expires: NSDate(timeIntervalSinceNow: 604800)// 7 days
-    ])!
+    @Published var loginCookies = [HTTPCookie]()
     
     let webView: WKWebView
     
@@ -78,8 +71,10 @@ class WebViewModel: ObservableObject {
         }
         .store(in: &cancellables)
         
-        $loginCookie.sink {
-            self.webView.configuration.websiteDataStore.httpCookieStore.setCookie($0)
+        $loginCookies.sink {
+            for cookie in $0 {
+                self.webView.configuration.websiteDataStore.httpCookieStore.setCookie(cookie)
+            }
         }
         .store(in: &cancellables)
         

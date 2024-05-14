@@ -8,7 +8,7 @@
 import Combine
 
 class PromotionViewModel: ObservableObject {
-    @Published var promotion = PromotionModel(img_full_url: "", title: "", registed_user_url: "", button_text: "", button_color: "")
+    @Published var promotion = PromotionModel(img_full_url: "", title: "", registed_user_url: "", button_text: "", button_color: "", button_bg_color: "")
     
     private var cancellableSet: Set<AnyCancellable> = []
     var dataManager: PromotionServiceProtocol

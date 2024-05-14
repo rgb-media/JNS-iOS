@@ -11,42 +11,34 @@ import Combine
 struct SearchView: View {
     @EnvironmentObject var showMenu: ShowMenuObservable
     @EnvironmentObject var webViewModel: WebViewModel
+    
+    @State var searchText = ""
 
-    private class TextFieldObserver : ObservableObject {
-        @Published var debouncedText = ""
-        @Published var searchText = ""
-        
-        private var subscriptions = Set<AnyCancellable>()
-        
-        init() {
-            $searchText
-                .debounce(for: .seconds(1), scheduler: DispatchQueue.main)
-                .sink(receiveValue: { [weak self] t in
-                    self?.debouncedText = t
-                } )
-                .store(in: &subscriptions)
-        }
-    }
-    
-    @StateObject private var textObserver = TextFieldObserver()
-    
     var body: some View {
         HStack {
             ZStack {
-                if textObserver.searchText.isEmpty {
+                if searchText.isEmpty {
                     Text("Type to search")
                         .font(Font.custom("FreightSansProBook-Regular", size: 16))
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .foregroundColor(Color(hex: 0x646464))
                 }
                 
-                TextField("", text: $textObserver.searchText)
+                TextField("", text: $searchText)
+                    .onAppear() {
+                        showMenu.$value.sink {
+                            if !$0 {
+                                searchText = ""
+                            }
+                        }
+                        .store(in: &Utils.subscriptions)
+                    }
                     .onSubmit {
-                        webViewModel.urlString = "https://www.jns.org/?s=\(textObserver.searchText)"
+                        webViewModel.urlString = "https://www.jns.org/?s=\(searchText)"
                         
                         showMenu.value = false
                     }
-                    .font(Font.custom("FreightSansProBold-Regular", size: 16))
+                    .font(Font.custom("FreightSansProBook-Regular", size: 16))
                     .multilineTextAlignment(.leading)
                     .foregroundColor(.jnsBlack)
                     .submitLabel(.search)
@@ -55,7 +47,7 @@ struct SearchView: View {
             Button(action: {
                 UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
 
-                webViewModel.urlString = "https://www.jns.org/?s=\(textObserver.searchText)"
+                webViewModel.urlString = "https://www.jns.org/?s=\(searchText)"
                 
                 showMenu.value = false
             }) {
