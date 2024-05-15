@@ -26,6 +26,7 @@ struct ContentView: View {
     @StateObject var showLoginPopup = LoginPopupObservable()
     @StateObject var showAlert      = ShowAlertObservable()
     @StateObject var hasComments    = HasCommentsObservable()
+    @StateObject var showLoading    = LoadingOverlayObservable()
 
     @ObservedObject var promotionViewModel = PromotionViewModel()
     
@@ -219,6 +220,7 @@ struct ContentView: View {
                     }
                 }
                 .frame(height: 60)
+                .background(.white)
             }
             .animation(.linear(duration: Constants.PROMOTION_ANIMATION_DURATION), value: webViewContentOffset.y == 0)
             
@@ -298,10 +300,15 @@ struct ContentView: View {
                 .offset(y: showLoginPopup.value ? 0 : UIScreen.main.bounds.height)
                 .animation(.linear(duration: Constants.MENU_ANIMATION_DURATION), value: showLoginPopup.value)
                 .environmentObject(hasComments)
+            
+            if showLoading.value {
+                LoadingOverlayView()
+            }
         }
         .environmentObject(webViewModel)
         .environmentObject(showMenu)
         .environmentObject(showLoginPopup)
+        .environmentObject(showLoading)
         .environmentObject(showAlert)
         .alert(isPresented: $showAlert.show) {
             Alert(

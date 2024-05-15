@@ -51,7 +51,7 @@ struct SubscribeView: View {
                 }
             }.store(in: &Utils.subscriptions)
 
-        showMenu.value = false
+//        showMenu.value = false
     }
 
     var body: some View {

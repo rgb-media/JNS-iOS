@@ -8,13 +8,14 @@
 import WebKit
 
 class WebViewDelegate: NSObject {
-    
     weak var webViewModel: WebViewModel?
     weak var showLoginPopup: LoginPopupObservable?
+    weak var showLoadingOverlay: LoadingOverlayObservable?
 
-    init(webViewModel: WebViewModel, showLoginPopup: LoginPopupObservable) {
+    init(webViewModel: WebViewModel, showLoginPopup: LoginPopupObservable, showLoadingOverlay: LoadingOverlayObservable?) {
         self.webViewModel = webViewModel
         self.showLoginPopup = showLoginPopup
+        self.showLoadingOverlay = showLoadingOverlay
     }
 }
 
@@ -50,9 +51,11 @@ extension WebViewDelegate: WKUIDelegate {
 
 extension WebViewDelegate: WKNavigationDelegate {
     // MARK: - WKNavigationDelegate
-//    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
 //        print("WKNavigationDelegate - didStartProvisionalNavigation: \(webView.url!.absoluteString)")
-//    }
+        
+        showLoadingOverlay?.value = true
+    }
 
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
 //        print("WKNavigationDelegate - didCommit: \(webView.url!.absoluteString)")
@@ -65,8 +68,16 @@ extension WebViewDelegate: WKNavigationDelegate {
 //
 //        decisionHandler(.allow)
 //    }
-//
-//    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
 //        print("WKNavigationDelegate - didFinish: \(webView.url!.absoluteString)")
-//    }
+        
+        showLoadingOverlay?.value = false
+    }
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: any Error) {
+        //        print("WKNavigationDelegate - didFail: \(webView.url!.absoluteString)")
+        
+        showLoadingOverlay?.value = false
+    }
 }

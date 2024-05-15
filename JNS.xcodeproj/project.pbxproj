@@ -10,6 +10,8 @@
 		1975A2552BF2D6E900E45566 /* HasCommentsObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975A2542BF2D6E900E45566 /* HasCommentsObservable.swift */; };
 		198107F02BE975E6008FA5E3 /* ShowAlertObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198107EF2BE975E6008FA5E3 /* ShowAlertObservable.swift */; };
 		198107F22BE97D0B008FA5E3 /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198107F12BE97D0B008FA5E3 /* LoginState.swift */; };
+		19812FD22BF43294005442C4 /* LoadingOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19812FD12BF43294005442C4 /* LoadingOverlayView.swift */; };
+		19812FD42BF43312005442C4 /* LoadingOverlayObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19812FD32BF43312005442C4 /* LoadingOverlayObservable.swift */; };
 		19821AB22BE9FFB80051E587 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19821AB12BE9FFB80051E587 /* Config.swift */; };
 		19821AB42BEA07670051E587 /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 19821AB32BEA07670051E587 /* config.json */; };
 		198942CD2BD45B240041C63F /* SubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198942CC2BD45B240041C63F /* SubscribeView.swift */; };
@@ -57,6 +59,8 @@
 		1975A2542BF2D6E900E45566 /* HasCommentsObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasCommentsObservable.swift; sourceTree = "<group>"; };
 		198107EF2BE975E6008FA5E3 /* ShowAlertObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlertObservable.swift; sourceTree = "<group>"; };
 		198107F12BE97D0B008FA5E3 /* LoginState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginState.swift; sourceTree = "<group>"; };
+		19812FD12BF43294005442C4 /* LoadingOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingOverlayView.swift; sourceTree = "<group>"; };
+		19812FD32BF43312005442C4 /* LoadingOverlayObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingOverlayObservable.swift; sourceTree = "<group>"; };
 		19821AB12BE9FFB80051E587 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		19821AB32BEA07670051E587 /* config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
 		198942CC2BD45B240041C63F /* SubscribeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeView.swift; sourceTree = "<group>"; };
@@ -208,6 +212,7 @@
 		19B37EB12BABBB320082CC26 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				19812FD12BF43294005442C4 /* LoadingOverlayView.swift */,
 				198ADD102BD985B300FCBB3B /* LoginView.swift */,
 				19E049DA2BCA1C4000E7BC60 /* MenuListCell.swift */,
 				19A6EBAB2BBE3A540000FC18 /* MenuView.swift */,
@@ -227,6 +232,7 @@
 				19AA4C2C2BBCC16700063ACE /* Constants.swift */,
 				19B37EB72BABC98B0082CC26 /* Extensions.swift */,
 				1975A2542BF2D6E900E45566 /* HasCommentsObservable.swift */,
+				19812FD32BF43312005442C4 /* LoadingOverlayObservable.swift */,
 				19AA4C402BBCE95A00063ACE /* LoginPopupObservable.swift */,
 				198107F12BE97D0B008FA5E3 /* LoginState.swift */,
 				198107EF2BE975E6008FA5E3 /* ShowAlertObservable.swift */,
@@ -340,7 +346,9 @@
 				19B37EA62BABB92A0082CC26 /* ContentView.swift in Sources */,
 				19B37EBC2BABD4E20082CC26 /* WebView.swift in Sources */,
 				19AA4C3D2BBCE88C00063ACE /* WebViewModel.swift in Sources */,
+				19812FD22BF43294005442C4 /* LoadingOverlayView.swift in Sources */,
 				198942D12BD45F9E0041C63F /* BrevoModel.swift in Sources */,
+				19812FD42BF43312005442C4 /* LoadingOverlayObservable.swift in Sources */,
 				19821AB22BE9FFB80051E587 /* Config.swift in Sources */,
 				1975A2552BF2D6E900E45566 /* HasCommentsObservable.swift in Sources */,
 				198107F02BE975E6008FA5E3 /* ShowAlertObservable.swift in Sources */,
@@ -484,7 +492,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"JNS/Preview Content\"";
 				DEVELOPMENT_TEAM = A6HMB4KPG2;
 				ENABLE_PREVIEWS = YES;
@@ -501,7 +509,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.4;
+				MARKETING_VERSION = 0.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rgbmedia.JNS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -516,7 +524,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"JNS/Preview Content\"";
 				DEVELOPMENT_TEAM = A6HMB4KPG2;
 				ENABLE_PREVIEWS = YES;
@@ -533,7 +541,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.4;
+				MARKETING_VERSION = 0.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rgbmedia.JNS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

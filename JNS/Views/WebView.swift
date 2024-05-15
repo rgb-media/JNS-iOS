@@ -10,6 +10,7 @@ import WebKit
 
 struct WebView: UIViewRepresentable {
     @EnvironmentObject var showLoginPopup: LoginPopupObservable
+    @EnvironmentObject var showLoadingOverlay: LoadingOverlayObservable
 
     @ObservedObject var webViewModel: WebViewModel
 
@@ -21,7 +22,7 @@ struct WebView: UIViewRepresentable {
     }
     
     func makeUIView(context: Context) -> WKWebView  {
-        webViewModel.setDelegate(WebViewDelegate(webViewModel: webViewModel, showLoginPopup: showLoginPopup))
+        webViewModel.setDelegate(WebViewDelegate(webViewModel: webViewModel, showLoginPopup: showLoginPopup, showLoadingOverlay: showLoadingOverlay))
 
         let wkWebView = webViewModel.webView
 
