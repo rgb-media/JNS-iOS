@@ -19,6 +19,7 @@ struct MenuView: View {
     
     @State private var pushNotificationsActive  = false
     @State private var subscribeExpanded        = false
+    @State private var keyboardHeight: CGFloat  = 0
 
     init() {
        UIScrollView.appearance().bounces = false
@@ -199,6 +200,18 @@ struct MenuView: View {
             .padding(.horizontal, 18)
         }
         .background(.white)
+        .safeAreaInset(edge: .bottom, spacing: keyboardHeight) {
+            EmptyView().frame(height: 0)
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) {
+            guard let userInfo = $0.userInfo,
+                  let keyboardRect = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
+            
+            keyboardHeight = keyboardRect.height
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
+            keyboardHeight = 0
+        }
     }
 }
 

@@ -14,7 +14,7 @@ struct ContentView: View {
     private let promotionButtonFont = Font.custom("FreightSansProBlack-Regular", size: 16)
     private let bottomBarFont       = Font.custom("FreightSansProBook-Regular", size: 12)
     private let loginMenuFont       = Font.custom("FreightSansProBook-Regular", size: 18)
-
+    
     private let menuView = MenuView()
     
     @State var webViewContentOffset = CGPoint(x: 0, y: 0)
@@ -27,7 +27,7 @@ struct ContentView: View {
     @StateObject var showAlert      = ShowAlertObservable()
     @StateObject var hasComments    = HasCommentsObservable()
     @StateObject var showLoading    = LoadingOverlayObservable()
-
+    
     @ObservedObject var promotionViewModel = PromotionViewModel()
     
     var body: some View {
@@ -102,10 +102,11 @@ struct ContentView: View {
                         Color(.lightGray).frame(width: 1, height: headerHeight)
                         Button(action: {
                             UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-
+                            
                             showMenu.value.toggle()
                         }) {
                             Image(showMenu.value ? "CloseMenu" : "Menu")
+                                .animation(.none)
                         }
                         .frame(width: headerHeight, height: headerHeight)
                     }
@@ -231,7 +232,7 @@ struct ContentView: View {
                     .frame(maxHeight: showMenu.value ? .infinity : 0)
                     .animation(.linear(duration: Constants.MENU_ANIMATION_DURATION), value: showMenu.value)
             }
-
+            
             if !webViewModel.isArticle {
                 HStack {
                     Image("LogoFrame").padding(.leading, 8)
@@ -243,43 +244,61 @@ struct ContentView: View {
                 HStack {
                     Spacer()
                     
-                    VStack(alignment: .leading) {
+                    VStack() {
                         Spacer().frame(height: 15)
-                                                
-                        Button(action: {
-                            UIApplication.shared.open(URL(string: "https://crm.jns.org/profile")!)
+                        
+                        HStack {
+                            Spacer().frame(width: 15)
                             
-                            showLoggedInMenu = false
-                        }) {
-                            Text("My Profile")
-                                .font(loginMenuFont)
-                                .foregroundColor(.jnsBlack)
+                            Button(action: {
+                                UIApplication.shared.open(URL(string: "https://crm.jns.org/profile")!)
+                                
+                                showLoggedInMenu = false
+                            }) {
+                                Text("My Profile")
+                                    .font(loginMenuFont)
+                                    .foregroundColor(.jnsBlack)
+                            }
+                            
+                            Spacer()
                         }
                         
                         Spacer().frame(height: 8)
-
-                        Button(action: {
-                            UIApplication.shared.open(URL(string: "https://crm.jns.org/support")!)
+                        
+                        HStack {
+                            Spacer().frame(width: 15)
                             
-                            showLoggedInMenu = false
-                        }) {
-                            Text("Support")
-                                .font(loginMenuFont)
-                                .foregroundColor(.jnsBlack)
+                            Button(action: {
+                                UIApplication.shared.open(URL(string: "https://crm.jns.org/support")!)
+                                
+                                showLoggedInMenu = false
+                            }) {
+                                Text("Support")
+                                    .font(loginMenuFont)
+                                    .foregroundColor(.jnsBlack)
+                            }
+                            
+                            Spacer()
                         }
                         
                         Spacer().frame(height: 8)
-
-                        Button(action: {
-                            LoginState.shared.isLoggedIn = false
+                        
+                        HStack {
+                            Spacer().frame(width: 15)
                             
-                            showLoggedInMenu = false
+                            Button(action: {
+                                LoginState.shared.isLoggedIn = false
+                                
+                                showLoggedInMenu = false
+                                
+                                hasComments.value = false
+                            }) {
+                                Text("Log out")
+                                    .font(loginMenuFont)
+                                    .foregroundColor(.jnsBlack)
+                            }
                             
-                            hasComments.value = false
-                        }) {
-                            Text("Log out")
-                                .font(loginMenuFont)
-                                .foregroundColor(.jnsBlack)
+                            Spacer()
                         }
                         
                         Spacer().frame(height: 15)
@@ -316,7 +335,7 @@ struct ContentView: View {
                 message: Text(showAlert.body)
             )
         }
-        .padding(.bottom, 8)
+        .padding(.bottom, 13)
         .ignoresSafeArea(edges: .bottom)
     }
 }

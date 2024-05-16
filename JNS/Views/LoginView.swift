@@ -19,7 +19,8 @@ struct LoginView: View {
 
     @State private var email    = "gal@rgbmedia.org"
     @State private var password = "123"
-
+    @State private var keyboardHeight: CGFloat = 0
+    
     var body: some View {
         VStack(spacing: 0) {
             Spacer()
@@ -188,6 +189,15 @@ struct LoginView: View {
             }
             .background(.white)
         }
-//        .background(Color(red: 0, green: 0, blue: 0, opacity: 0.7))
+        .offset(y: -keyboardHeight / 2)
+        .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) {
+            guard let userInfo = $0.userInfo,
+                  let keyboardRect = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
+            
+            keyboardHeight = keyboardRect.height
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
+            keyboardHeight = 0
+        }
     }
 }

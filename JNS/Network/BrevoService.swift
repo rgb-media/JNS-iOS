@@ -24,7 +24,7 @@ extension BrevoService: BrevoServiceProtocol {
         
         let headers: HTTPHeaders? = ["content-type": "application/json",
                                      "api-key": Config.BREVO_API_KEY]
-        let parameters: Parameters? = ["email": email]
+        let parameters: Parameters? = ["email": email, "listIds": [44, 47]]
 
         return AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
             .validate()
