@@ -6,7 +6,7 @@
 //
 
 class Constants {
-    public static let SERVER        = "www"
+    public static let SERVER        = "dev"
     public static let DOMAIN_NAME   = "jns.org"
     public static let HOMEPAGE_URL  = "https://" + SERVER + "." + DOMAIN_NAME + "/"
     public static let LATEST_URL    = HOMEPAGE_URL + "latest/"
@@ -14,7 +14,8 @@ class Constants {
     public static let MEDIA_URL     = HOMEPAGE_URL + "category/jns-tv/"
     public static let PROMOTION_URL = HOMEPAGE_URL + "wp-content/themes/rgb/ajax/api/print_header_banner_data.php"
     public static let MENU_URL      = HOMEPAGE_URL + "wp-content/themes/rgb/ajax/api/print_public_menus.php"
-    public static let LOGIN_URL     = "https://devcrm.jns.org/api/login"
+    public static let LOGIN_URL     = "https://" + (SERVER == "dev" ? "dev": "") + "crm.jns.org/api/login"
+    public static let COMMENT_URL   = "https://" + (SERVER == "dev" ? "dev": "") + "crm.jns.org/user_comments/"
 
     public static let BREVO_URL     =  "https://api.brevo.com/v3/contacts"
     

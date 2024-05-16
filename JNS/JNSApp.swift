@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct JNSApp: App {
+    @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
+
     init() {
         Config.loadFromFile()
     }

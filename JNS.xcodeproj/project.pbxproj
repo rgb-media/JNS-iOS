@@ -12,12 +12,19 @@
 		198107F22BE97D0B008FA5E3 /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198107F12BE97D0B008FA5E3 /* LoginState.swift */; };
 		19812FD22BF43294005442C4 /* LoadingOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19812FD12BF43294005442C4 /* LoadingOverlayView.swift */; };
 		19812FD42BF43312005442C4 /* LoadingOverlayObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19812FD32BF43312005442C4 /* LoadingOverlayObservable.swift */; };
+		1981DFE02BF6025D00AB2E8D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1981DFDF2BF6025D00AB2E8D /* GoogleService-Info.plist */; };
+		1981DFE32BF6031C00AB2E8D /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 1981DFE22BF6031C00AB2E8D /* FirebaseCrashlytics */; };
 		19821AB22BE9FFB80051E587 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19821AB12BE9FFB80051E587 /* Config.swift */; };
 		19821AB42BEA07670051E587 /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 19821AB32BEA07670051E587 /* config.json */; };
 		198942CD2BD45B240041C63F /* SubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198942CC2BD45B240041C63F /* SubscribeView.swift */; };
 		198942CF2BD45F4C0041C63F /* BrevoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198942CE2BD45F4C0041C63F /* BrevoService.swift */; };
 		198942D12BD45F9E0041C63F /* BrevoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198942D02BD45F9E0041C63F /* BrevoModel.swift */; };
 		198ADD112BD985B300FCBB3B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198ADD102BD985B300FCBB3B /* LoginView.swift */; };
+		198C257B2BF59AA000E0D79D /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198C257A2BF59AA000E0D79D /* NotificationService.swift */; };
+		198C257F2BF59AA000E0D79D /* PushwooshNotificationServiceExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 198C25782BF59AA000E0D79D /* PushwooshNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		198C258A2BF59D6E00E0D79D /* Pushwoosh in Frameworks */ = {isa = PBXBuildFile; productRef = 198C25892BF59D6E00E0D79D /* Pushwoosh */; };
+		198C258C2BF59D8200E0D79D /* Pushwoosh in Frameworks */ = {isa = PBXBuildFile; productRef = 198C258B2BF59D8200E0D79D /* Pushwoosh */; };
+		198C258E2BF59E3500E0D79D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198C258D2BF59E3500E0D79D /* AppDelegate.swift */; };
 		1992728D2BE310D60066CC04 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1992728C2BE310D60066CC04 /* LoginService.swift */; };
 		1992728F2BE311CC0066CC04 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1992728E2BE311CC0066CC04 /* LoginModel.swift */; };
 		19A6EBA62BBE38B60000FC18 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A6EBA52BBE38B60000FC18 /* MenuModel.swift */; };
@@ -55,18 +62,49 @@
 		19E049DB2BCA1C4000E7BC60 /* MenuListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E049DA2BCA1C4000E7BC60 /* MenuListCell.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		198C257D2BF59AA000E0D79D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 19B37E982BABB92A0082CC26 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 198C25772BF59AA000E0D79D;
+			remoteInfo = PushwooshNotificationServiceExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		198C25832BF59AA000E0D79D /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				198C257F2BF59AA000E0D79D /* PushwooshNotificationServiceExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1975A2542BF2D6E900E45566 /* HasCommentsObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasCommentsObservable.swift; sourceTree = "<group>"; };
 		198107EF2BE975E6008FA5E3 /* ShowAlertObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlertObservable.swift; sourceTree = "<group>"; };
 		198107F12BE97D0B008FA5E3 /* LoginState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginState.swift; sourceTree = "<group>"; };
 		19812FD12BF43294005442C4 /* LoadingOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingOverlayView.swift; sourceTree = "<group>"; };
 		19812FD32BF43312005442C4 /* LoadingOverlayObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingOverlayObservable.swift; sourceTree = "<group>"; };
+		1981DFDF2BF6025D00AB2E8D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		19821AB12BE9FFB80051E587 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		19821AB32BEA07670051E587 /* config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
 		198942CC2BD45B240041C63F /* SubscribeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeView.swift; sourceTree = "<group>"; };
 		198942CE2BD45F4C0041C63F /* BrevoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrevoService.swift; sourceTree = "<group>"; };
 		198942D02BD45F9E0041C63F /* BrevoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrevoModel.swift; sourceTree = "<group>"; };
 		198ADD102BD985B300FCBB3B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		198C25732BF59A0500E0D79D /* JNS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JNS.entitlements; sourceTree = "<group>"; };
+		198C25782BF59AA000E0D79D /* PushwooshNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PushwooshNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		198C257A2BF59AA000E0D79D /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		198C257C2BF59AA000E0D79D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		198C25842BF59B9C00E0D79D /* PushwooshNotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PushwooshNotificationServiceExtension.entitlements; sourceTree = "<group>"; };
+		198C258D2BF59E3500E0D79D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1992728C2BE310D60066CC04 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		1992728E2BE311CC0066CC04 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		19A6EBA52BBE38B60000FC18 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
@@ -106,17 +144,37 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		198C25752BF59AA000E0D79D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				198C258C2BF59D8200E0D79D /* Pushwoosh in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		19B37E9D2BABB92A0082CC26 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1981DFE32BF6031C00AB2E8D /* FirebaseCrashlytics in Frameworks */,
 				19AA4C462BBCFCA300063ACE /* Alamofire in Frameworks */,
+				198C258A2BF59D6E00E0D79D /* Pushwoosh in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		198C25792BF59AA000E0D79D /* PushwooshNotificationServiceExtension */ = {
+			isa = PBXGroup;
+			children = (
+				198C25842BF59B9C00E0D79D /* PushwooshNotificationServiceExtension.entitlements */,
+				198C257A2BF59AA000E0D79D /* NotificationService.swift */,
+				198C257C2BF59AA000E0D79D /* Info.plist */,
+			);
+			path = PushwooshNotificationServiceExtension;
+			sourceTree = "<group>";
+		};
 		19AA4C162BBCBAD100063ACE /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				19B37EA22BABB92A0082CC26 /* JNS */,
+				198C25792BF59AA000E0D79D /* PushwooshNotificationServiceExtension */,
 				19B37EA12BABB92A0082CC26 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -177,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				19B37EA02BABB92A0082CC26 /* JNS.app */,
+				198C25782BF59AA000E0D79D /* PushwooshNotificationServiceExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -184,13 +244,16 @@
 		19B37EA22BABB92A0082CC26 /* JNS */ = {
 			isa = PBXGroup;
 			children = (
-				19AA4C2B2BBCBBB700063ACE /* Info.plist */,
 				19821AB32BEA07670051E587 /* config.json */,
+				1981DFDF2BF6025D00AB2E8D /* GoogleService-Info.plist */,
+				19AA4C2B2BBCBBB700063ACE /* Info.plist */,
+				198C25732BF59A0500E0D79D /* JNS.entitlements */,
 				19AA4C362BBCC3B700063ACE /* Models */,
 				19AA4C2E2BBCC25000063ACE /* Network */,
 				19AA4C392BBCC4E200063ACE /* ViewModels */,
 				19B37EB12BABBB320082CC26 /* Views */,
 				19B37EB42BABC0290082CC26 /* Utils */,
+				198C258D2BF59E3500E0D79D /* AppDelegate.swift */,
 				19B37EA32BABB92A0082CC26 /* JNSApp.swift */,
 				19B37EA52BABB92A0082CC26 /* ContentView.swift */,
 				19B37EA72BABB9300082CC26 /* Assets.xcassets */,
@@ -245,6 +308,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		198C25772BF59AA000E0D79D /* PushwooshNotificationServiceExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 198C25802BF59AA000E0D79D /* Build configuration list for PBXNativeTarget "PushwooshNotificationServiceExtension" */;
+			buildPhases = (
+				198C25742BF59AA000E0D79D /* Sources */,
+				198C25752BF59AA000E0D79D /* Frameworks */,
+				198C25762BF59AA000E0D79D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PushwooshNotificationServiceExtension;
+			packageProductDependencies = (
+				198C258B2BF59D8200E0D79D /* Pushwoosh */,
+			);
+			productName = PushwooshNotificationServiceExtension;
+			productReference = 198C25782BF59AA000E0D79D /* PushwooshNotificationServiceExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		19B37E9F2BABB92A0082CC26 /* JNS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19B37EAE2BABB9300082CC26 /* Build configuration list for PBXNativeTarget "JNS" */;
@@ -252,14 +335,19 @@
 				19B37E9C2BABB92A0082CC26 /* Sources */,
 				19B37E9D2BABB92A0082CC26 /* Frameworks */,
 				19B37E9E2BABB92A0082CC26 /* Resources */,
+				198C25832BF59AA000E0D79D /* Embed Foundation Extensions */,
+				1981DFE42BF6059200AB2E8D /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				198C257E2BF59AA000E0D79D /* PBXTargetDependency */,
 			);
 			name = JNS;
 			packageProductDependencies = (
 				19AA4C452BBCFCA300063ACE /* Alamofire */,
+				198C25892BF59D6E00E0D79D /* Pushwoosh */,
+				1981DFE22BF6031C00AB2E8D /* FirebaseCrashlytics */,
 			);
 			productName = JNS;
 			productReference = 19B37EA02BABB92A0082CC26 /* JNS.app */;
@@ -272,9 +360,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1520;
+				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
+					198C25772BF59AA000E0D79D = {
+						CreatedOnToolsVersion = 15.3;
+					};
 					19B37E9F2BABB92A0082CC26 = {
 						CreatedOnToolsVersion = 15.2;
 					};
@@ -291,23 +382,34 @@
 			mainGroup = 19B37E972BABB92A0082CC26;
 			packageReferences = (
 				19AA4C442BBCFCA300063ACE /* XCRemoteSwiftPackageReference "Alamofire" */,
+				198C25882BF59D6E00E0D79D /* XCRemoteSwiftPackageReference "Pushwoosh-XCFramework" */,
+				1981DFE12BF6031C00AB2E8D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 19B37EA12BABB92A0082CC26 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				19B37E9F2BABB92A0082CC26 /* JNS */,
+				198C25772BF59AA000E0D79D /* PushwooshNotificationServiceExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		198C25762BF59AA000E0D79D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		19B37E9E2BABB92A0082CC26 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				19B37EAB2BABB9300082CC26 /* Preview Assets.xcassets in Resources */,
 				19AA4C222BBCBAF700063ACE /* UtopiaStd-BoldDisp.ttf in Resources */,
+				1981DFE02BF6025D00AB2E8D /* GoogleService-Info.plist in Resources */,
 				19AA4C292BBCBAF700063ACE /* FreightSansProBold-Italic.ttf in Resources */,
 				19AA4C282BBCBAF700063ACE /* FreightSansProBook-Italic.ttf in Resources */,
 				19E049D92BCA175900E7BC60 /* Launch Screen.storyboard in Resources */,
@@ -325,7 +427,40 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1981DFE42BF6059200AB2E8D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
+				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
+				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		198C25742BF59AA000E0D79D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				198C257B2BF59AA000E0D79D /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		19B37E9C2BABB92A0082CC26 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -338,6 +473,7 @@
 				19A6EBA62BBE38B60000FC18 /* MenuModel.swift in Sources */,
 				19AA4C3B2BBCC50000063ACE /* PromotionViewModel.swift in Sources */,
 				1992728D2BE310D60066CC04 /* LoginService.swift in Sources */,
+				198C258E2BF59E3500E0D79D /* AppDelegate.swift in Sources */,
 				19AA4C432BBCF1B200063ACE /* Utils.swift in Sources */,
 				19AA4C382BBCC3DE00063ACE /* PromotionModel.swift in Sources */,
 				198107F22BE97D0B008FA5E3 /* LoginState.swift in Sources */,
@@ -366,7 +502,69 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		198C257E2BF59AA000E0D79D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 198C25772BF59AA000E0D79D /* PushwooshNotificationServiceExtension */;
+			targetProxy = 198C257D2BF59AA000E0D79D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		198C25812BF59AA000E0D79D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = PushwooshNotificationServiceExtension/PushwooshNotificationServiceExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_TEAM = A6HMB4KPG2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PushwooshNotificationServiceExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PushwooshNotificationServiceExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 0.0.6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rgbmedia.JNS.PushwooshNotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		198C25822BF59AA000E0D79D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = PushwooshNotificationServiceExtension/PushwooshNotificationServiceExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_TEAM = A6HMB4KPG2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PushwooshNotificationServiceExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PushwooshNotificationServiceExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 0.0.6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rgbmedia.JNS.PushwooshNotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		19B37EAC2BABB9300082CC26 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -489,10 +687,13 @@
 		19B37EAF2BABB9300082CC26 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = JNS/JNS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"JNS/Preview Content\"";
 				DEVELOPMENT_TEAM = A6HMB4KPG2;
 				ENABLE_PREVIEWS = YES;
@@ -502,6 +703,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -521,8 +723,10 @@
 		19B37EB02BABB9300082CC26 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = JNS/JNS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"JNS/Preview Content\"";
@@ -534,6 +738,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -553,6 +758,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		198C25802BF59AA000E0D79D /* Build configuration list for PBXNativeTarget "PushwooshNotificationServiceExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				198C25812BF59AA000E0D79D /* Debug */,
+				198C25822BF59AA000E0D79D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		19B37E9B2BABB92A0082CC26 /* Build configuration list for PBXProject "JNS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -574,6 +788,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1981DFE12BF6031C00AB2E8D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.26.0;
+			};
+		};
+		198C25882BF59D6E00E0D79D /* XCRemoteSwiftPackageReference "Pushwoosh-XCFramework" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Pushwoosh/Pushwoosh-XCFramework";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.11;
+			};
+		};
 		19AA4C442BBCFCA300063ACE /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -585,6 +815,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1981DFE22BF6031C00AB2E8D /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1981DFE12BF6031C00AB2E8D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		198C25892BF59D6E00E0D79D /* Pushwoosh */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 198C25882BF59D6E00E0D79D /* XCRemoteSwiftPackageReference "Pushwoosh-XCFramework" */;
+			productName = Pushwoosh;
+		};
+		198C258B2BF59D8200E0D79D /* Pushwoosh */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 198C25882BF59D6E00E0D79D /* XCRemoteSwiftPackageReference "Pushwoosh-XCFramework" */;
+			productName = Pushwoosh;
+		};
 		19AA4C452BBCFCA300063ACE /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 19AA4C442BBCFCA300063ACE /* XCRemoteSwiftPackageReference "Alamofire" */;

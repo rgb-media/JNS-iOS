@@ -10,6 +10,8 @@ import Foundation
 class LoginState {
     @Published public var isLoggedIn = false
     
+    public var userId = -1
+    
     static let shared: LoginState = LoginState()
     private init() { }
 }

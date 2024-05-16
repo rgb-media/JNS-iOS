@@ -131,27 +131,31 @@ struct LoginView: View {
                     LoginService.shared.sendLogin(email: email, password: password)
                         .sink { dataResponse in
                             showAlert.show = true
-                            showAlert.title = "LOGIN"
 
                             var result = dataResponse.value
                             if result == nil, let data = dataResponse.data {
                                 result = try? JSONDecoder().decode(LoginModel.self, from: data)
                             }
 
-                            if result?.id != nil {
+                            if let userId = result?.id {
                                 LoginState.shared.isLoggedIn = true
                                 
                                 if let loginModel = result {
+                                    LoginState.shared.userId = userId
+                                    
                                     webViewModel.loginCookies = Utils.getCookiesFromLoginModel(loginModel)
                                     
                                     hasComments.value = loginModel.hasComments ?? false
                                 }
                                 
-                                showAlert.body = "Login was successful!"
-                            } else if let message = result?.message {
-                                showAlert.body = message
+                                showAlert.title = "Success!"
+                                showAlert.body = "You are now logged in to JNS"
+                            } else if let error = result?.error, error == "auth_fail" || error == "unknown_email" {
+                                showAlert.title = error == "auth_fail" ? "Incorrect password": "Incorrect email address"
+                                showAlert.body = "Please check your credentials and try again"
                             } else {
-                                showAlert.body = "An error has occured. Please try again later."
+                                showAlert.title = "Login error"
+                                showAlert.body = "Something went wrong and we couldn’t log you in. Please try again later"
                             }
                         }.store(in: &Utils.subscriptions)
                     

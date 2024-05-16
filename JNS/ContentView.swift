@@ -81,6 +81,7 @@ struct ContentView: View {
                         if hasComments.value {
                             Color(.lightGray).frame(width: 1, height: headerHeight)
                             Button(action: {
+                                webViewModel.urlString = "\(Constants.COMMENT_URL)\(LoginState.shared.userId)"
                             }) {
                                 Image("Comment")
                             }
