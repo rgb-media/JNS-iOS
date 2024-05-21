@@ -28,11 +28,7 @@ extension WebViewDelegate: WKScriptMessageHandler {
                 print("\(Constants.DEBUG_TAG) - userContentController didReceive: \(function!)")
             }
             
-            if function == "popupOpened" {
-                webViewModel?.isArticle = true
-            } else if function == "popupClosed" {
-                webViewModel?.isArticle = false
-            } else if function == "popupLoginOpened" {
+            if function == "openNativeLoginDialog" {
                 showLoginPopup?.value = true
             }
         }
@@ -54,7 +50,7 @@ extension WebViewDelegate: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
 //        print("WKNavigationDelegate - didStartProvisionalNavigation: \(webView.url!.absoluteString)")
         
-        showLoadingOverlay?.value = true
+//        showLoadingOverlay?.value = true
     }
 
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
@@ -72,12 +68,12 @@ extension WebViewDelegate: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
 //        print("WKNavigationDelegate - didFinish: \(webView.url!.absoluteString)")
         
-        showLoadingOverlay?.value = false
+//        showLoadingOverlay?.value = false
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: any Error) {
         //        print("WKNavigationDelegate - didFail: \(webView.url!.absoluteString)")
         
-        showLoadingOverlay?.value = false
+//        showLoadingOverlay?.value = false
     }
 }

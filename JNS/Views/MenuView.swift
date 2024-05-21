@@ -200,7 +200,7 @@ struct MenuView: View {
             .padding(.horizontal, 18)
         }
         .background(.white)
-        .safeAreaInset(edge: .bottom, spacing: keyboardHeight) {
+        .safeAreaInset(edge: .bottom, spacing: showMenu.value ? keyboardHeight: 0) {
             EmptyView().frame(height: 0)
         }
         .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) {

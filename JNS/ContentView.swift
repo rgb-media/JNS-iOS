@@ -51,6 +51,9 @@ struct ContentView: View {
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(height: 44)
+                                    .onTapGesture {
+                                        webViewModel.urlString = Constants.HOMEPAGE_URL
+                                    }
                             }
                         }
                         

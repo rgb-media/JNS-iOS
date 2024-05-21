@@ -17,8 +17,8 @@ struct LoginView: View {
     @EnvironmentObject var webViewModel: WebViewModel
     @EnvironmentObject var hasComments: HasCommentsObservable
 
-    @State private var email    = "gal@rgbmedia.org"
-    @State private var password = "123"
+    @State private var email    = ""// "galsabag90@gmail.com"
+    @State private var password = ""// "123"
     @State private var keyboardHeight: CGFloat = 0
     
     var body: some View {
@@ -77,6 +77,14 @@ struct LoginView: View {
                         .foregroundColor(.jnsBlack)
                         .background(Color(hex: 0xF8F8F8))
                         .border(Color.jnsGray)
+                        .onAppear() {
+                            showLoginPopup.$value.sink {
+                                if !$0 {
+                                    email = ""
+                                }
+                            }
+                            .store(in: &Utils.subscriptions)
+                        }
 
                     Spacer().frame(width: 40)
                 }
@@ -105,6 +113,14 @@ struct LoginView: View {
                         .foregroundColor(.jnsBlack)
                         .background(Color(hex: 0xF8F8F8))
                         .border(Color.jnsGray)
+                        .onAppear() {
+                            showLoginPopup.$value.sink {
+                                if !$0 {
+                                    password = ""
+                                }
+                            }
+                            .store(in: &Utils.subscriptions)
+                        }
 
                     Spacer().frame(width: 40)
                 }
