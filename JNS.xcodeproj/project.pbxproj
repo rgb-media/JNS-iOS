@@ -16,6 +16,7 @@
 		1981DFE32BF6031C00AB2E8D /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 1981DFE22BF6031C00AB2E8D /* FirebaseCrashlytics */; };
 		19821AB22BE9FFB80051E587 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19821AB12BE9FFB80051E587 /* Config.swift */; };
 		19821AB42BEA07670051E587 /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 19821AB32BEA07670051E587 /* config.json */; };
+		198299E02BFD57EB003A7912 /* PushAlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198299DF2BFD57EB003A7912 /* PushAlertModel.swift */; };
 		198942CD2BD45B240041C63F /* SubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198942CC2BD45B240041C63F /* SubscribeView.swift */; };
 		198942CF2BD45F4C0041C63F /* BrevoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198942CE2BD45F4C0041C63F /* BrevoService.swift */; };
 		198942D12BD45F9E0041C63F /* BrevoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198942D02BD45F9E0041C63F /* BrevoModel.swift */; };
@@ -95,6 +96,7 @@
 		1981DFDF2BF6025D00AB2E8D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		19821AB12BE9FFB80051E587 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		19821AB32BEA07670051E587 /* config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
+		198299DF2BFD57EB003A7912 /* PushAlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAlertModel.swift; sourceTree = "<group>"; };
 		198942CC2BD45B240041C63F /* SubscribeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeView.swift; sourceTree = "<group>"; };
 		198942CE2BD45F4C0041C63F /* BrevoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrevoService.swift; sourceTree = "<group>"; };
 		198942D02BD45F9E0041C63F /* BrevoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrevoModel.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				1992728E2BE311CC0066CC04 /* LoginModel.swift */,
 				19A6EBA52BBE38B60000FC18 /* MenuModel.swift */,
 				19AA4C372BBCC3DE00063ACE /* PromotionModel.swift */,
+				198299DF2BFD57EB003A7912 /* PushAlertModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 				19A6EBAE2BBE50A10000FC18 /* SearchView.swift in Sources */,
 				19AA4C302BBCC28B00063ACE /* PromotionService.swift in Sources */,
 				19A6EBA82BBE39BE0000FC18 /* MenuService.swift in Sources */,
+				198299E02BFD57EB003A7912 /* PushAlertModel.swift in Sources */,
 				198ADD112BD985B300FCBB3B /* LoginView.swift in Sources */,
 				19A6EBA62BBE38B60000FC18 /* MenuModel.swift in Sources */,
 				19AA4C3B2BBCC50000063ACE /* PromotionViewModel.swift in Sources */,

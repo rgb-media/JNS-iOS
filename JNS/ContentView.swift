@@ -27,7 +27,8 @@ struct ContentView: View {
     @StateObject var showAlert      = ShowAlertObservable()
     @StateObject var hasComments    = HasCommentsObservable()
     @StateObject var showLoading    = LoadingOverlayObservable()
-    
+    @StateObject var pushAlert      = PushAlertModel()
+
     @ObservedObject var promotionViewModel = PromotionViewModel()
     
     var body: some View {
@@ -328,6 +329,8 @@ struct ContentView: View {
                 LoadingOverlayView()
             }
         }
+        .padding(.bottom, 13)
+        .ignoresSafeArea(edges: .bottom)
         .environmentObject(webViewModel)
         .environmentObject(showMenu)
         .environmentObject(showLoginPopup)
@@ -339,7 +342,26 @@ struct ContentView: View {
                 message: Text(showAlert.body)
             )
         }
-        .padding(.bottom, 13)
-        .ignoresSafeArea(edges: .bottom)
+        .alert(isPresented: $pushAlert.showAlert) {
+            Alert(
+                title: Text(pushAlert.title),
+                message: Text(pushAlert.message),
+                primaryButton: .default(Text("Open")) {
+                    webViewModel.urlString = pushAlert.url
+                },
+                secondaryButton: .cancel()
+            )
+        }
+        .onReceive(NotificationCenter.default.publisher(for: Constants.PUSH_NOTIFICATION_ALERT)) { msg in
+            let payload = msg.object as! PushAlertModel
+            pushAlert.title = payload.title
+            pushAlert.message = payload.message
+            pushAlert.url = payload.url
+            pushAlert.showAlert = payload.showAlert
+            
+            if !pushAlert.showAlert {
+                webViewModel.urlString = pushAlert.url
+            }
+        }
     }
 }

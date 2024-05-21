@@ -5,6 +5,8 @@
 //  Created by Adrian Picui on 03.04.2024.
 //
 
+import SwiftUI
+
 class Constants {
     public static let SERVER        = "www"
     public static let DOMAIN_NAME   = "jns.org"
@@ -19,6 +21,8 @@ class Constants {
 
     public static let BREVO_URL     =  "https://api.brevo.com/v3/contacts"
     
+    public static let PUSH_NOTIFICATION_ALERT       = Notification.Name("PushwooshAlert")
+
     public static let PROMOTION_ANIMATION_DURATION  = 0.3
     public static let MENU_ANIMATION_DURATION       = 0.4
     

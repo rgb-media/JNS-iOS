@@ -12,13 +12,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PWMessagingDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        //initialization code
         FirebaseApp.configure()
         
-        //set custom delegate for push handling, in our case AppDelegate
+        Pushwoosh.sharedInstance().showPushnotificationAlert = false
         Pushwoosh.sharedInstance().delegate = self
-        
-        //register for push notifications
         Pushwoosh.sharedInstance().registerForPushNotifications()
         
         return true
@@ -50,11 +47,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PWMessagingDelegate {
     
     //this event is fired when the push gets received
     func pushwoosh(_ pushwoosh: Pushwoosh, onMessageReceived message: PWMessage) {
-        print("onMessageReceived: ", message.payload?.description ?? "no data")
+        if Constants.DEBUG_PUSHWWOSH {
+            print("onMessageReceived: ", message.payload?.description ?? "no data")
+        }
+
+        notificationReceived(message.payload)
     }
     
     //this event is fired when a user taps the notification
     func pushwoosh(_ pushwoosh: Pushwoosh, onMessageOpened message: PWMessage) {
-        print("onMessageOpened: ", message.payload?.description ?? "no data")
+        if Constants.DEBUG_PUSHWWOSH {
+            print("onMessageOpened: ", message.payload?.description ?? "no data")
+        }
+        
+        notificationReceived(message.payload)
+    }
+    
+    private func notificationReceived(_ userInfo: [AnyHashable: Any]?) {
+        if let json = PushNotificationManager.push().getCustomPushData(asNSDict: userInfo) {
+            if let article = json["article"] as? String {
+                let url = "\(Constants.HOMEPAGE_URL)\(article)"
+                
+                var title = "JNS"
+                var message = "JNS"
+                
+                if let aps = userInfo?["aps"] as? [String: Any], let alert = aps["alert"] as? [String: Any] {
+                    if let string = alert["title"] as? String {
+                        title = string
+                    }
+                    
+                    if let string = alert["body"] as? String {
+                        message = string
+                    }
+                }
+                
+                let payload = PushAlertModel()
+                payload.showAlert = UIApplication.shared.applicationState == .active
+                payload.title = title
+                payload.message = message
+                payload.url = url
+                
+                NotificationCenter.default.post(name: Constants.PUSH_NOTIFICATION_ALERT, object: payload)
+            }
+        }
     }
 }
