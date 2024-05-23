@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 extension Color {
     static let jnsRed   = Color(hex: 0x920815)
@@ -39,26 +40,30 @@ extension Color {
         }
         self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, opacity: CGFloat(a) / 255)
     }
-    
-//    init(hex: String) {
-//        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-//        
-//        if (cString.hasPrefix("#")) {
-//            cString.remove(at: cString.startIndex)
-//        }
-//        
-////        if ((cString.count) != 6) {
-////            return .gray
-////        }
-//        
-//        var rgbValue: UInt64 = 0
-//        Scanner(string: cString).scanHexInt64(&rgbValue)
-//        
-//        self.init(
-//            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-//            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-//            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-//            opacity: CGFloat(1.0)
-//        )
-//    }
+}
+
+extension Publishers {
+    static var keyboardHeight: AnyPublisher<CGFloat, Never> {
+        let willShow = NotificationCenter.default.publisher(for: UIApplication.keyboardWillShowNotification)
+            .map { ($0.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect)?.height ?? 0 }
+        
+        let willHide = NotificationCenter.default.publisher(for: UIApplication.keyboardWillHideNotification)
+            .map { _ in CGFloat(0) }
+        
+        return MergeMany(willShow, willHide)
+            .eraseToAnyPublisher()
+    }
+}
+
+extension UIScreen {
+    static var bottomSafeArea: CGFloat {
+        let keyWindow = UIApplication.shared.connectedScenes
+            .filter({$0.activationState == .foregroundActive})
+            .map({$0 as? UIWindowScene})
+            .compactMap({$0})
+            .first?.windows
+            .filter({$0.isKeyWindow}).first
+        
+        return (keyWindow?.safeAreaInsets.bottom) ?? 0
+    }
 }

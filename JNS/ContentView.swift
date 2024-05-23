@@ -24,7 +24,7 @@ struct ContentView: View {
     @StateObject var webViewModel   = WebViewModel()
     @StateObject var showMenu       = ShowMenuObservable()
     @StateObject var showLoginPopup = LoginPopupObservable()
-    @StateObject var showAlert      = ShowAlertObservable()
+    @StateObject var loginAlert     = LoginAlertObservable()
     @StateObject var hasComments    = HasCommentsObservable()
     @StateObject var showLoading    = LoadingOverlayObservable()
     @StateObject var pushAlert      = PushAlertModel()
@@ -297,6 +297,8 @@ struct ContentView: View {
                                 showLoggedInMenu = false
                                 
                                 hasComments.value = false
+                                
+                                _ = KeyChain.save(key: Constants.USER_DATA, value: "")
                             }) {
                                 Text("Log out")
                                     .font(loginMenuFont)
@@ -317,6 +319,7 @@ struct ContentView: View {
             
             if showLoginPopup.value {
                 Color(red: 0, green: 0, blue: 0, opacity: 0.7)
+                    .ignoresSafeArea(edges: .top)
             }
             
             LoginView()
@@ -335,23 +338,24 @@ struct ContentView: View {
         .environmentObject(showMenu)
         .environmentObject(showLoginPopup)
         .environmentObject(showLoading)
-        .environmentObject(showAlert)
-        .alert(isPresented: $showAlert.show) {
-            Alert(
-                title: Text(showAlert.title),
-                message: Text(showAlert.body)
-            )
-        }
-        .alert(isPresented: $pushAlert.showAlert) {
-            Alert(
-                title: Text(pushAlert.title),
-                message: Text(pushAlert.message),
-                primaryButton: .default(Text("Open")) {
-                    webViewModel.urlString = pushAlert.url
-                },
-                secondaryButton: .cancel()
-            )
-        }
+        .environmentObject(loginAlert)
+        .alert(loginAlert.title, isPresented: $loginAlert.show, actions: {
+            Button("OK", role: nil, action: {
+                if loginAlert.isOk {
+                    showLoginPopup.value = false
+                    
+                    webViewModel.reload()
+                }
+            })
+        }, message: {
+            Text(loginAlert.body)
+        })
+        .alert(pushAlert.title, isPresented: $pushAlert.showAlert, actions: {
+            Button("Cancel", role: .cancel, action: {})
+            Button("OPEN", role: nil, action: { webViewModel.urlString = pushAlert.url })
+        }, message: {
+            Text(pushAlert.message)
+        })
         .onReceive(NotificationCenter.default.publisher(for: Constants.PUSH_NOTIFICATION_ALERT)) { msg in
             let payload = msg.object as! PushAlertModel
             pushAlert.title = payload.title
@@ -361,6 +365,16 @@ struct ContentView: View {
             
             if !pushAlert.showAlert {
                 webViewModel.urlString = pushAlert.url
+            }
+        }
+        .onAppear() {
+            if let json = KeyChain.load(key: Constants.USER_DATA), let loginModel = Utils.getLoginModelFromString(json) {
+                LoginState.shared.isLoggedIn = true
+                
+                hasComments.value = loginModel.hasComments ?? false
+                
+                let cookies = Utils.getCookiesFromLoginModel(loginModel)
+                webViewModel.loginCookies = cookies
             }
         }
     }

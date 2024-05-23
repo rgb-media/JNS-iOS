@@ -35,4 +35,6 @@ class Constants {
     
     public static let CRMUSER_COOKIE        = "crmUser"
     public static let USERID_COOKIE         = "userId"
+    
+    public static let USER_DATA             = "userData"
 }

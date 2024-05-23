@@ -48,7 +48,7 @@ extension WebViewDelegate: WKUIDelegate {
 extension WebViewDelegate: WKNavigationDelegate {
     // MARK: - WKNavigationDelegate
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-//        print("WKNavigationDelegate - didStartProvisionalNavigation: \(webView.url!.absoluteString)")
+        print("WKNavigationDelegate - didStartProvisionalNavigation: \(webView.url!.absoluteString)")
         
 //        showLoadingOverlay?.value = true
     }
@@ -59,11 +59,22 @@ extension WebViewDelegate: WKNavigationDelegate {
         webViewModel?.isArticle = Utils.isArticle(url: webView.url!)
     }
 
-//    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
 //        print("WKNavigationDelegate - decidePolicyFor: \(navigationAction.request.url!.absoluteString.prefix(80))")
-//
-//        decisionHandler(.allow)
-//    }
+
+        if let url = navigationAction.request.url {
+            if url.absoluteString.contains("jns.org/join-wire")
+                || url.absoluteString.contains("jns.org/sign-up-press") {
+                decisionHandler(.cancel)
+                
+                UIApplication.shared.open(url)
+                
+                return
+            }
+        }
+        
+        decisionHandler(.allow)
+    }
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
 //        print("WKNavigationDelegate - didFinish: \(webView.url!.absoluteString)")

@@ -91,6 +91,10 @@ class WebViewModel: ObservableObject {
         .store(in: &cancellables)
     }
     
+    func reload() {
+        webView.reload()
+    }
+    
     func loadUrl() {
         guard let url = URL(string: urlString) else {
             return

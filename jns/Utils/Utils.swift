@@ -26,6 +26,15 @@ class Utils {
         
         return true
     }
+
+    public static func getLoginModelFromString(_ jsonString: String) -> LoginModel? {
+        if let data = jsonString.data(using: .utf8),
+           let json = try? JSONDecoder().decode(LoginModel.self, from: data) {
+            return json
+        }
+        
+        return nil
+    }
     
     public static func getCookiesFromLoginModel(_ model: LoginModel) -> [HTTPCookie] {
         var cookies = [HTTPCookie]()

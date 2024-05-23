@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct LoginView: View {
     private let welcomeTextFont = Font.custom("UtopiaStd-BoldDisp", size: 36)
@@ -13,12 +14,12 @@ struct LoginView: View {
     private let registerFont    = Font.custom("FreightSansProBold-Regular", size: 16)
 
     @EnvironmentObject var showLoginPopup: LoginPopupObservable
-    @EnvironmentObject var showAlert: ShowAlertObservable
+    @EnvironmentObject var showAlert: LoginAlertObservable
     @EnvironmentObject var webViewModel: WebViewModel
     @EnvironmentObject var hasComments: HasCommentsObservable
 
-    @State private var email    = ""// "galsabag90@gmail.com"
-    @State private var password = ""// "123"
+    @State private var email    = ""
+    @State private var password = ""
     @State private var keyboardHeight: CGFloat = 0
     
     var body: some View {
@@ -144,6 +145,8 @@ struct LoginView: View {
                 Spacer().frame(height: 40)
                 
                 Button(action: {
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+
                     LoginService.shared.sendLogin(email: email, password: password)
                         .sink { dataResponse in
                             showAlert.show = true
@@ -154,28 +157,32 @@ struct LoginView: View {
                             }
 
                             if let userId = result?.id {
-                                LoginState.shared.isLoggedIn = true
-                                
                                 if let loginModel = result {
                                     LoginState.shared.userId = userId
                                     
                                     webViewModel.loginCookies = Utils.getCookiesFromLoginModel(loginModel)
                                     
                                     hasComments.value = loginModel.hasComments ?? false
+                                    
+                                    let json = Utils.getDataStringFromLoginModel(loginModel)
+                                    _ = KeyChain.save(key: Constants.USER_DATA, value: json)
+                                    
+                                    LoginState.shared.isLoggedIn = true
                                 }
                                 
                                 showAlert.title = "Success!"
                                 showAlert.body = "You are now logged in to JNS"
+                                showAlert.isOk = true
                             } else if let error = result?.error, error == "auth_fail" || error == "unknown_email" {
                                 showAlert.title = error == "auth_fail" ? "Incorrect password": "Incorrect email address"
                                 showAlert.body = "Please check your credentials and try again"
+                                showAlert.isOk = false
                             } else {
                                 showAlert.title = "Login error"
                                 showAlert.body = "Something went wrong and we couldn’t log you in. Please try again later"
+                                showAlert.isOk = false
                             }
                         }.store(in: &Utils.subscriptions)
-                    
-//                    showLoginPopup.value = false
                 }) {
                     Text("LOG IN")
                         .font(Font.custom("FreightSansProBold-Regular", size: 20))
@@ -205,19 +212,14 @@ struct LoginView: View {
                     UIApplication.shared.open(URL(string: "https://crm.jns.org/sign-up")!)
                 }
                 
-                Spacer().frame(height: 40)
+                Spacer().frame(height: 40 + UIScreen.bottomSafeArea)
             }
             .background(.white)
         }
-        .offset(y: -keyboardHeight / 2)
-        .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) {
-            guard let userInfo = $0.userInfo,
-                  let keyboardRect = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
-            
-            keyboardHeight = keyboardRect.height
-        }
-        .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
-            keyboardHeight = 0
+        .offset(y: -keyboardHeight)
+        .ignoresSafeArea(.all)
+        .onReceive(Publishers.keyboardHeight) {
+            keyboardHeight = $0
         }
     }
 }

@@ -11,7 +11,7 @@ import Combine
 struct SubscribeView: View {
     @EnvironmentObject var showMenu: ShowMenuObservable
     @EnvironmentObject var webViewModel: WebViewModel
-    @EnvironmentObject var showAlert: ShowAlertObservable
+    @EnvironmentObject var showAlert: LoginAlertObservable
 
     private class TextFieldObserver : ObservableObject {
         @Published var debouncedText = ""

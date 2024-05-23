@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1975A2552BF2D6E900E45566 /* HasCommentsObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975A2542BF2D6E900E45566 /* HasCommentsObservable.swift */; };
-		198107F02BE975E6008FA5E3 /* ShowAlertObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198107EF2BE975E6008FA5E3 /* ShowAlertObservable.swift */; };
+		198107F02BE975E6008FA5E3 /* LoginAlertObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198107EF2BE975E6008FA5E3 /* LoginAlertObservable.swift */; };
 		198107F22BE97D0B008FA5E3 /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198107F12BE97D0B008FA5E3 /* LoginState.swift */; };
 		19812FD22BF43294005442C4 /* LoadingOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19812FD12BF43294005442C4 /* LoadingOverlayView.swift */; };
 		19812FD42BF43312005442C4 /* LoadingOverlayObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19812FD32BF43312005442C4 /* LoadingOverlayObservable.swift */; };
@@ -20,6 +20,7 @@
 		198942CD2BD45B240041C63F /* SubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198942CC2BD45B240041C63F /* SubscribeView.swift */; };
 		198942CF2BD45F4C0041C63F /* BrevoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198942CE2BD45F4C0041C63F /* BrevoService.swift */; };
 		198942D12BD45F9E0041C63F /* BrevoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198942D02BD45F9E0041C63F /* BrevoModel.swift */; };
+		198AA54E2BFED393000E2BD3 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198AA54D2BFED393000E2BD3 /* Keychain.swift */; };
 		198ADD112BD985B300FCBB3B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198ADD102BD985B300FCBB3B /* LoginView.swift */; };
 		198C257B2BF59AA000E0D79D /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198C257A2BF59AA000E0D79D /* NotificationService.swift */; };
 		198C257F2BF59AA000E0D79D /* PushwooshNotificationServiceExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 198C25782BF59AA000E0D79D /* PushwooshNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -89,7 +90,7 @@
 
 /* Begin PBXFileReference section */
 		1975A2542BF2D6E900E45566 /* HasCommentsObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasCommentsObservable.swift; sourceTree = "<group>"; };
-		198107EF2BE975E6008FA5E3 /* ShowAlertObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlertObservable.swift; sourceTree = "<group>"; };
+		198107EF2BE975E6008FA5E3 /* LoginAlertObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAlertObservable.swift; sourceTree = "<group>"; };
 		198107F12BE97D0B008FA5E3 /* LoginState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginState.swift; sourceTree = "<group>"; };
 		19812FD12BF43294005442C4 /* LoadingOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingOverlayView.swift; sourceTree = "<group>"; };
 		19812FD32BF43312005442C4 /* LoadingOverlayObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingOverlayObservable.swift; sourceTree = "<group>"; };
@@ -100,6 +101,7 @@
 		198942CC2BD45B240041C63F /* SubscribeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeView.swift; sourceTree = "<group>"; };
 		198942CE2BD45F4C0041C63F /* BrevoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrevoService.swift; sourceTree = "<group>"; };
 		198942D02BD45F9E0041C63F /* BrevoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrevoModel.swift; sourceTree = "<group>"; };
+		198AA54D2BFED393000E2BD3 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		198ADD102BD985B300FCBB3B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		198C25732BF59A0500E0D79D /* JNS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JNS.entitlements; sourceTree = "<group>"; };
 		198C25782BF59AA000E0D79D /* PushwooshNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PushwooshNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -298,10 +300,11 @@
 				19AA4C2C2BBCC16700063ACE /* Constants.swift */,
 				19B37EB72BABC98B0082CC26 /* Extensions.swift */,
 				1975A2542BF2D6E900E45566 /* HasCommentsObservable.swift */,
+				198AA54D2BFED393000E2BD3 /* Keychain.swift */,
 				19812FD32BF43312005442C4 /* LoadingOverlayObservable.swift */,
 				19AA4C402BBCE95A00063ACE /* LoginPopupObservable.swift */,
 				198107F12BE97D0B008FA5E3 /* LoginState.swift */,
-				198107EF2BE975E6008FA5E3 /* ShowAlertObservable.swift */,
+				198107EF2BE975E6008FA5E3 /* LoginAlertObservable.swift */,
 				19B37EB52BABC0450082CC26 /* ShowMenuObservable.swift */,
 				19AA4C422BBCF1B200063ACE /* Utils.swift */,
 			);
@@ -485,13 +488,14 @@
 				198942CF2BD45F4C0041C63F /* BrevoService.swift in Sources */,
 				19B37EA62BABB92A0082CC26 /* ContentView.swift in Sources */,
 				19B37EBC2BABD4E20082CC26 /* WebView.swift in Sources */,
+				198AA54E2BFED393000E2BD3 /* Keychain.swift in Sources */,
 				19AA4C3D2BBCE88C00063ACE /* WebViewModel.swift in Sources */,
 				19812FD22BF43294005442C4 /* LoadingOverlayView.swift in Sources */,
 				198942D12BD45F9E0041C63F /* BrevoModel.swift in Sources */,
 				19812FD42BF43312005442C4 /* LoadingOverlayObservable.swift in Sources */,
 				19821AB22BE9FFB80051E587 /* Config.swift in Sources */,
 				1975A2552BF2D6E900E45566 /* HasCommentsObservable.swift in Sources */,
-				198107F02BE975E6008FA5E3 /* ShowAlertObservable.swift in Sources */,
+				198107F02BE975E6008FA5E3 /* LoginAlertObservable.swift in Sources */,
 				19AA4C3F2BBCE8A400063ACE /* WebViewDelegate.swift in Sources */,
 				19AA4C412BBCE95A00063ACE /* LoginPopupObservable.swift in Sources */,
 				19E049DB2BCA1C4000E7BC60 /* MenuListCell.swift in Sources */,
@@ -520,7 +524,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = PushwooshNotificationServiceExtension/PushwooshNotificationServiceExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = A6HMB4KPG2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PushwooshNotificationServiceExtension/Info.plist;
@@ -532,7 +536,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.0.6;
+				MARKETING_VERSION = 0.0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rgbmedia.JNS.PushwooshNotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -547,7 +551,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = PushwooshNotificationServiceExtension/PushwooshNotificationServiceExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = A6HMB4KPG2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PushwooshNotificationServiceExtension/Info.plist;
@@ -559,7 +563,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.0.6;
+				MARKETING_VERSION = 0.0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rgbmedia.JNS.PushwooshNotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -696,7 +700,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = JNS/JNS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"JNS/Preview Content\"";
 				DEVELOPMENT_TEAM = A6HMB4KPG2;
@@ -715,7 +719,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.6;
+				MARKETING_VERSION = 0.0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rgbmedia.JNS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -732,7 +736,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = JNS/JNS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"JNS/Preview Content\"";
 				DEVELOPMENT_TEAM = A6HMB4KPG2;
 				ENABLE_PREVIEWS = YES;
@@ -750,7 +754,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.6;
+				MARKETING_VERSION = 0.0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rgbmedia.JNS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
