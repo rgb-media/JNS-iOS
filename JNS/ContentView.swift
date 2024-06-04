@@ -123,37 +123,39 @@ struct ContentView: View {
                 
                 ZStack(alignment: .top) {
                     VStack(spacing: 0) {
-                        if webViewContentOffset.y == 0 {
-                            HStack {
-                                Text(promotionViewModel.promotion.title)
-                                    .font(promotionTextFont)
-                                    .foregroundColor(.white)
-                                    .padding(20)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                
-                                Button(action: {
-                                    UIApplication.shared.open(URL(string: promotionViewModel.promotion.registed_user_url)!)
-                                }) {
-                                    Text(promotionViewModel.promotion.button_text ?? "DONATE")
-                                        .font(promotionButtonFont)
+                        if !LoginState.shared.isPremiumUser {
+                            if webViewContentOffset.y == 0 {
+                                HStack {
+                                    Text(promotionViewModel.promotion.title)
+                                        .font(promotionTextFont)
+                                        .foregroundColor(.white)
+                                        .padding(20)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                    
+                                    Button(action: {
+                                        UIApplication.shared.open(URL(string: promotionViewModel.promotion.registed_user_url)!)
+                                    }) {
+                                        Text(promotionViewModel.promotion.button_text ?? "DONATE")
+                                            .font(promotionButtonFont)
+                                    }
+                                    .padding(.horizontal, 24)
+                                    .padding(.vertical, 8)
+                                    .foregroundColor(Color(hex: promotionViewModel.promotion.button_color ?? "#0000FF"))
+                                    .background(Capsule()
+                                        .strokeBorder(.white, lineWidth: 1)
+                                        .background(Color(hex: promotionViewModel.promotion.button_bg_color ?? "#FFFFFF")))
+                                    .clipShape(Capsule())
+                                    
+                                    Spacer().frame(width: 12)
                                 }
-                                .padding(.horizontal, 24)
-                                .padding(.vertical, 8)
-                                .foregroundColor(Color(hex: promotionViewModel.promotion.button_color ?? "#0000FF"))
-                                .background(Capsule()
-                                    .strokeBorder(.white, lineWidth: 1)
-                                    .background(Color(hex: promotionViewModel.promotion.button_bg_color ?? "#FFFFFF")))
-                                .clipShape(Capsule())
-                                
-                                Spacer().frame(width: 12)
+                                .background(AsyncImage(url: URL(string: promotionViewModel.promotion.img_full_url))
+                                    .aspectRatio(contentMode: .fill))
+                                .clipped()
+                                .contentShape(Rectangle())
+                                .transition(.move(edge: .top))
                             }
-                            .background(AsyncImage(url: URL(string: promotionViewModel.promotion.img_full_url))
-                                .aspectRatio(contentMode: .fill))
-                            .clipped()
-                            .contentShape(Rectangle())
-                            .transition(.move(edge: .top))
                         }
-                        
+                    
                         WebView(webViewModel: webViewModel, contentOffset: $webViewContentOffset)
                     }
                 }
@@ -241,6 +243,10 @@ struct ContentView: View {
             if !webViewModel.isArticle {
                 HStack {
                     Image("LogoFrame").padding(.leading, 8)
+                        .onTapGesture {
+                            webViewModel.urlString = Constants.HOMEPAGE_URL
+                        }
+
                     Spacer()
                 }
             }
@@ -292,7 +298,7 @@ struct ContentView: View {
                             Spacer().frame(width: 15)
                             
                             Button(action: {
-                                LoginState.shared.isLoggedIn = false
+                                LoginState.shared.logout()
                                 
                                 showLoggedInMenu = false
                                 
@@ -370,6 +376,7 @@ struct ContentView: View {
         .onAppear() {
             if let json = KeyChain.load(key: Constants.USER_DATA), let loginModel = Utils.getLoginModelFromString(json) {
                 LoginState.shared.isLoggedIn = true
+                LoginState.shared.isPremiumUser = loginModel.status?.lowercased() == "premium"
                 
                 hasComments.value = loginModel.hasComments ?? false
                 

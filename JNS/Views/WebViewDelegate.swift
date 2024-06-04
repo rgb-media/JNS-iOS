@@ -64,7 +64,10 @@ extension WebViewDelegate: WKNavigationDelegate {
 
         if let url = navigationAction.request.url {
             if url.absoluteString.contains("jns.org/join-wire")
-                || url.absoluteString.contains("jns.org/sign-up-press") {
+                || url.absoluteString.contains("jns.org/sign-up")
+                || url.absoluteString.contains("jns.org/sign-up-press")
+                || url.absoluteString.contains("jns.org/sign-up-society")
+                || url.absoluteString.contains("jns.org/sign-up-premium") {
                 decisionHandler(.cancel)
                 
                 UIApplication.shared.open(url)

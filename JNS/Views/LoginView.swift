@@ -159,7 +159,8 @@ struct LoginView: View {
                             if let userId = result?.id {
                                 if let loginModel = result {
                                     LoginState.shared.userId = userId
-                                    
+                                    LoginState.shared.isPremiumUser = loginModel.status?.lowercased() == "premium"
+
                                     webViewModel.loginCookies = Utils.getCookiesFromLoginModel(loginModel)
                                     
                                     hasComments.value = loginModel.hasComments ?? false
