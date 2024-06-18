@@ -9,10 +9,11 @@ import SwiftUI
 import Combine
 
 extension Color {
-    static let jnsRed   = Color(hex: 0x920815)
-    static let jnsBlue  = Color(hex: 0x2A83FF)
-    static let jnsBlack = Color(hex: 0x252525)
-    static let jnsGray  = Color(hex: 0x969696)
+    static let jnsRed       = Color(hex: 0x920815)
+    static let jnsBlue      = Color(hex: 0x2A83FF)
+    static let jnsBlack     = Color(hex: 0x252525)
+    static let jnsGray      = Color(hex: 0x969696)
+    static let jnsOverlay   = Color(hex: 0x000000, alpha: 0.7)
 
     init(hex: UInt, alpha: Double = 1) {
         self.init(

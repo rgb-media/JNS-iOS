@@ -15,6 +15,7 @@ struct LoginView: View {
 
     @EnvironmentObject var showLoginPopup: LoginPopupObservable
     @EnvironmentObject var showAlert: LoginAlertObservable
+    @EnvironmentObject var showLoadingOverlay: LoadingOverlayObservable
     @EnvironmentObject var webViewModel: WebViewModel
     @EnvironmentObject var hasComments: HasCommentsObservable
 
@@ -145,10 +146,13 @@ struct LoginView: View {
                 Spacer().frame(height: 40)
                 
                 Button(action: {
+                    showLoadingOverlay.value = true
+                    
                     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
 
                     LoginService.shared.sendLogin(email: email, password: password)
                         .sink { dataResponse in
+                            showLoadingOverlay.value = false
                             showAlert.show = true
 
                             var result = dataResponse.value
@@ -217,7 +221,7 @@ struct LoginView: View {
             }
             .background(.white)
         }
-        .offset(y: -keyboardHeight)
+        .offset(y: -keyboardHeight + (keyboardHeight == 0 ? 0: 60))
         .ignoresSafeArea(.all)
         .onReceive(Publishers.keyboardHeight) {
             keyboardHeight = $0

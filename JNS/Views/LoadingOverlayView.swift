@@ -10,7 +10,7 @@ import SwiftUI
 struct LoadingOverlayView: View {
     var body: some View {
         ZStack {
-            Color(hex: 0x000000, alpha: 0.7)
+            Color.jnsOverlay
             
             ProgressView()
                 .scaleEffect(x: 4, y: 4)
