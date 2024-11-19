@@ -72,8 +72,56 @@ class WebViewModel: ObservableObject {
         .store(in: &cancellables)
         
         $loginCookies.sink {
-            for cookie in $0 {
-                self.webView.configuration.websiteDataStore.httpCookieStore.setCookie(cookie)
+            if $0.isEmpty {
+                self.webView.configuration.websiteDataStore.httpCookieStore.getAllCookies { cookies in
+                    var num = 3
+
+                    for cookie in cookies {
+                        if cookie.name == Constants.CRMSESSION_COOKIE {
+                            num -= 1
+                            
+                            self.webView.configuration.websiteDataStore.httpCookieStore.delete(cookie) {
+                                print("CRMSESSION cookie deleted")
+
+                                if num == 0 {
+                                    self.webView.reload()
+                                }
+                            }
+                        }
+                        
+                        if cookie.name == Constants.CRMUSER_COOKIE {
+                            num -= 1
+                            
+                            self.webView.configuration.websiteDataStore.httpCookieStore.delete(cookie) {
+                                print("CRM user cookie deleted")
+
+                                if num == 0 {
+                                    self.webView.reload()
+                                }
+                            }
+                        }
+
+                        if cookie.name == Constants.USERID_COOKIE {
+                            num -= 1
+                            
+                            self.webView.configuration.websiteDataStore.httpCookieStore.delete(cookie) {
+                                print("User id cookie deleted")
+
+                                if num == 0 {
+                                    self.webView.reload()
+                                }
+                            }
+                        }
+                    }
+                    
+                    if num > 0 {
+                        self.webView.reload()
+                    }
+                }
+            } else {
+                for cookie in $0 {
+                    self.webView.configuration.websiteDataStore.httpCookieStore.setCookie(cookie)
+                }
             }
         }
         .store(in: &cancellables)

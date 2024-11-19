@@ -173,6 +173,8 @@ struct LoginView: View {
                                     _ = KeyChain.save(key: Constants.USER_DATA, value: json)
                                     
                                     LoginState.shared.isLoggedIn = true
+                                    
+                                    webViewModel.reload()
                                 }
                                 
                                 showAlert.title = "Success!"

@@ -60,14 +60,15 @@ extension WebViewDelegate: WKNavigationDelegate {
     }
 
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-//        print("WKNavigationDelegate - decidePolicyFor: \(navigationAction.request.url!.absoluteString.prefix(80))")
-
+        //        print("WKNavigationDelegate - decidePolicyFor: \(navigationAction.request.url!.absoluteString.prefix(80))")
+        
         if let url = navigationAction.request.url {
             if url.absoluteString.contains("jns.org/join-wire")
                 || url.absoluteString.contains("jns.org/sign-up")
                 || url.absoluteString.contains("jns.org/sign-up-press")
                 || url.absoluteString.contains("jns.org/sign-up-society")
-                || url.absoluteString.contains("jns.org/sign-up-premium") {
+                || url.absoluteString.contains("jns.org/sign-up-premium")
+                || url.absoluteString.contains("form=SUPPORT_JNS") {
                 decisionHandler(.cancel)
                 
                 UIApplication.shared.open(url)

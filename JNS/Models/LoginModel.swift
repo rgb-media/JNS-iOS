@@ -14,4 +14,9 @@ struct LoginModel: Codable {
     let hasComments: Bool?
     let firstName: String?
     let lastName: String?
+    let crmSession: String?
+    
+    private enum CodingKeys : String, CodingKey {
+      case crmSession = "CRMSESSION", error, message, id, status, hasSubscription, hasComments, firstName, lastName
+    }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 class Constants {
-    public static let SERVER        = "www"
+    public static let SERVER        = "dev"
     public static let DOMAIN_NAME   = "jns.org"
     public static let HOMEPAGE_URL  = "https://" + SERVER + "." + DOMAIN_NAME + "/"
     public static let LATEST_URL    = HOMEPAGE_URL + "latest/"
@@ -35,6 +35,7 @@ class Constants {
     
     public static let CRMUSER_COOKIE        = "crmUser"
     public static let USERID_COOKIE         = "userId"
+    public static let CRMSESSION_COOKIE     = "CRMSESSION"
     
     public static let USER_DATA             = "userData"
 }

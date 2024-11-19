@@ -62,6 +62,17 @@ class Utils {
         ]) {
             cookies.append(cookie)
         }
+        
+        if let cookie = HTTPCookie(properties: [
+            .domain: ".jns.com",
+            .path: "/",
+            .name: Constants.CRMSESSION_COOKIE,
+            .value: model.crmSession ?? "",
+            .secure: "TRUE",
+            .expires: NSDate(timeIntervalSinceNow: 60 * 60 * 24 * 365 * 10)// ten years
+        ]) {
+            cookies.append(cookie)
+        }
 
         return cookies
     }

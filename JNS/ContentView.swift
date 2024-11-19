@@ -110,6 +110,12 @@ struct ContentView: View {
                                 UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                                 
                                 showMenu.value.toggle()
+                                
+//                                webViewModel.webView.configuration.websiteDataStore.httpCookieStore.getAllCookies { cookies in
+//                                    for cookie in cookies {
+//                                        print("\(cookie)\n")
+//                                    }
+//                                }
                             }) {
                                 Image(showMenu.value ? "CloseMenu" : "Menu")
                                     .animation(.none)
@@ -134,7 +140,12 @@ struct ContentView: View {
                                             .frame(maxWidth: .infinity, alignment: .leading)
                                         
                                         Button(action: {
-                                            UIApplication.shared.open(URL(string: promotionViewModel.promotion.registed_user_url)!)
+                                            var url = promotionViewModel.promotion.registed_user_url
+                                            if url.starts(with: "/") {
+                                                url = "https://www.jns.org" + url
+                                            }
+                                            
+                                            UIApplication.shared.open(URL(string: url)!)
                                         }) {
                                             Text(promotionViewModel.promotion.button_text ?? "DONATE")
                                                 .font(promotionButtonFont)
@@ -294,6 +305,8 @@ struct ContentView: View {
                                         showLoggedInMenu = false
                                         
                                         hasComments.value = false
+                                        
+                                        webViewModel.loginCookies = []
                                         
                                         _ = KeyChain.save(key: Constants.USER_DATA, value: "")
                                     }) {
