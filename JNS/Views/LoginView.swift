@@ -15,13 +15,13 @@ struct LoginView: View {
 
     @EnvironmentObject var showLoginPopup: LoginPopupObservable
     @EnvironmentObject var showAlert: LoginAlertObservable
-    @EnvironmentObject var showLoadingOverlay: LoadingOverlayObservable
     @EnvironmentObject var webViewModel: WebViewModel
     @EnvironmentObject var hasComments: HasCommentsObservable
 
     @State private var email    = ""
     @State private var password = ""
     @State private var keyboardHeight: CGFloat = 0
+    @State private var isLoading = false
     
     var body: some View {
         VStack(spacing: 0) {
@@ -146,13 +146,13 @@ struct LoginView: View {
                 Spacer().frame(height: 40)
                 
                 Button(action: {
-                    showLoadingOverlay.value = true
+                    isLoading = true
                     
                     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
 
                     LoginService.shared.sendLogin(email: email, password: password)
                         .sink { dataResponse in
-                            showLoadingOverlay.value = false
+                            isLoading = false
                             showAlert.show = true
 
                             var result = dataResponse.value
@@ -191,16 +191,33 @@ struct LoginView: View {
                             }
                         }.store(in: &Utils.subscriptions)
                 }) {
-                    Text("LOG IN")
-                        .font(Font.custom("FreightSansProBold-Regular", size: 20))
+                    if !isLoading {
+                        Text("LOG IN")
+                            .font(Font.custom("FreightSansProBold-Regular", size: 20))
+                    }
                 }
-                .frame(height: 50)
-                .padding(.horizontal, 50)
+                .frame(width: 150, height: 50)
                 .foregroundColor(.white)
                 .background(Capsule()
                     .strokeBorder(Color.jnsBlack, lineWidth: 1)
                     .background(Color.jnsBlack))
                 .clipShape(Capsule())
+                .overlay(content: {
+                    if isLoading {
+                        ProgressView()
+                            .progressViewStyle(.circular)
+                            .tint(.white)
+                    }
+                })
+                .onAppear() {
+                    showLoginPopup.$value.sink {
+                        if !$0 {
+                            isLoading = false
+                        }
+                    }
+                    .store(in: &Utils.subscriptions)
+                }
+
                 
                 Spacer().frame(height: 20)
                 

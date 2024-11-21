@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    // DEBUG - print cookies
+    @State var showCookiesAlert     = false
+    @State var cookiesText          = ""
+
     private let headerHeight = 61.0
     
     private let promotionTextFont   = Font.custom("FreightSansProBlack-Regular", size: 20)
@@ -20,7 +24,7 @@ struct ContentView: View {
     @State var webViewContentOffset = CGPoint(x: 0, y: 0)
     @State var selectedBottomIndex  = 0
     @State var showLoggedInMenu     = false
-    
+        
     @StateObject var webViewModel   = WebViewModel()
     @StateObject var showMenu       = ShowMenuObservable()
     @StateObject var showLoginPopup = LoginPopupObservable()
@@ -339,6 +343,8 @@ struct ContentView: View {
                         Image("LogoFrame").padding(.leading, 8)
                             .onTapGesture {
                                 webViewModel.urlString = Constants.HOMEPAGE_URL
+                                
+                                showAllCookies()
                             }
                         
                         Spacer()
@@ -384,6 +390,11 @@ struct ContentView: View {
             }, message: {
                 Text(pushAlert.message)
             })
+            .alert("Cookie list", isPresented: $showCookiesAlert, actions: {
+                Button("Close", role: .cancel, action: {})
+            }, message: {
+                Text(cookiesText)
+            })
             .onReceive(NotificationCenter.default.publisher(for: Constants.PUSH_NOTIFICATION_ALERT)) { msg in
                 let payload = msg.object as! PushAlertModel
                 pushAlert.title = payload.title
@@ -409,5 +420,19 @@ struct ContentView: View {
             }
         }
         .ignoresSafeArea(.keyboard, edges: .bottom)
+    }
+    
+    private func showAllCookies() {
+        webViewModel.webView.configuration.websiteDataStore.httpCookieStore.getAllCookies { cookies in
+            var text = "\n"
+            
+            for cookie in cookies {
+                text += "\(cookie.name) = \(cookie.value)\n\n********************\n\n"
+            }
+            
+            cookiesText = text
+            
+            showCookiesAlert = true
+        }
     }
 }
