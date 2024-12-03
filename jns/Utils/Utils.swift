@@ -42,7 +42,7 @@ class Utils {
         let json = getDataStringFromLoginModel(model)
         
         if let cookie = HTTPCookie(properties: [
-            .domain: ".jns.org",
+            .domain: ".\(Constants.DOMAIN_NAME)",
             .path: "/",
             .name: Constants.CRMUSER_COOKIE,
             .value: json,
@@ -53,7 +53,7 @@ class Utils {
         }
 
         if let cookie = HTTPCookie(properties: [
-            .domain: ".jns.org",
+            .domain: ".\(Constants.DOMAIN_NAME)",
             .path: "/",
             .name: Constants.USERID_COOKIE,
             .value: String(model.id ?? -1),
@@ -64,7 +64,7 @@ class Utils {
         }
         
         if let cookie = HTTPCookie(properties: [
-            .domain: ".jns.com",
+            .domain: ".\(Constants.DOMAIN_NAME)",
             .path: "/",
             .name: Constants.CRMSESSION_COOKIE,
             .value: model.crmSession ?? "",

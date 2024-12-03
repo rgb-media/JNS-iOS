@@ -344,7 +344,7 @@ struct ContentView: View {
                             .onTapGesture {
                                 webViewModel.urlString = Constants.HOMEPAGE_URL
                                 
-                                showAllCookies()
+//                                showAllCookies()
                             }
                         
                         Spacer()

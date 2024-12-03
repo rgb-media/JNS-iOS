@@ -72,6 +72,11 @@ struct MenuView: View {
                 .onChange(of: showMenu.value) {
                     if !$0 {
                         subscribeExpanded = false
+                    } else {
+                        Task {
+                            let settings = await UNUserNotificationCenter.current().notificationSettings()
+                            pushNotificationsActive = settings.authorizationStatus == .authorized
+                        }
                     }
                 }
                 
@@ -104,12 +109,19 @@ struct MenuView: View {
                         .toggleStyle(CustomToggleStyle(onColor: .jnsBlack,
                                                        offColor: Color(red: 1, green: 1, blue: 1, opacity: 0.35),
                                                        thumbColor: .white))
+                        .disabled(true)
                     
                     Spacer().frame(width: 18)
                 }
                 .background(LinearGradient(gradient: Gradient(colors: [Color(hex: 0x3E98FA), Color(hex: 0x1D3268), Color(hex: 0x1D3268)]),
                                            startPoint: .trailing, endPoint: .leading))
                 .padding(.horizontal, -18)
+                .onTapGesture {
+                    if let appSettings = NSURL(string: UIApplication.openSettingsURLString) {
+                        UIApplication.shared.open(appSettings as URL, options: [:], completionHandler: nil)
+                    }
+                }
+
                 
                 VStack {
                     Spacer().frame(height: 20)
@@ -211,6 +223,12 @@ struct MenuView: View {
         }
         .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
             keyboardHeight = 0
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+            Task {
+                let settings = await UNUserNotificationCenter.current().notificationSettings()
+                pushNotificationsActive = settings.authorizationStatus == .authorized
+            }
         }
     }
 }
