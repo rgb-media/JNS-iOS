@@ -4,6 +4,10 @@
 <dict>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>PW_APP_GROUPS_NAME</key>
+	<string>group.com.rgbmedia.JNS</string>
+	<key>Pushwoosh_APPID</key>
+	<string>F638E-AD89C</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>FreightSansProBlack-Italic.ttf</string>
@@ -21,9 +25,5 @@
 	<array>
 		<string>remote-notification</string>
 	</array>
-	<key>Pushwoosh_APPID</key>
-	<string>F638E-AD89C</string>
-	<key>PW_APP_GROUPS_NAME</key>
-	<string>group.com.rgbmedia.JNS</string>
 </dict>
 </plist>

@@ -75,6 +75,14 @@ extension WebViewDelegate: WKNavigationDelegate {
                 
                 return
             }
+            
+            if (url.scheme?.lowercased() == "mailto") {
+                decisionHandler(.cancel)
+
+                UIApplication.shared.open(url)
+
+                return
+            }
         }
         
         decisionHandler(.allow)
